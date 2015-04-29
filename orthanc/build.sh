@@ -30,7 +30,7 @@ mkdir -p /var/lib/orthanc/db
 mkdir -p /usr/share/orthanc/plugins
 
 # Clone the Orthanc repository and switch to the requested branch
-cd /home/
+cd /root/
 hg clone https://s.jodogne@code.google.com/p/orthanc/ orthanc
 cd orthanc
 hg up -c "$1"
@@ -53,7 +53,7 @@ make -j$COUNT_CORES
 make install
 
 # Build the "ServeFolders" sample plugin
-cd /home/orthanc
+cd /root/orthanc
 mkdir BuildServeFolders
 cd BuildServeFolders
 cmake -DCMAKE_BUILD_TYPE:STRING=Release ../Plugins/Samples/ServeFolders
@@ -61,8 +61,8 @@ make -j$COUNT_CORES
 cp -L libServeFolders.so /usr/share/orthanc/plugins
 
 # Remove the build directory to recover space
-cd /home/
-rm -rf /home/orthanc
+cd /root/
+rm -rf /root/orthanc
 
 # Auto-generate, then patch the configuration file
 CONFIG=/etc/orthanc/orthanc.json

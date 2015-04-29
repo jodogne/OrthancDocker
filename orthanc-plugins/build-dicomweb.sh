@@ -25,7 +25,7 @@ COUNT_CORES=`grep -c ^processor /proc/cpuinfo`
 echo "Will use $COUNT_CORES parallel jobs to build Orthanc"
 
 # Clone the repository and switch to the requested branch
-cd /home/
+cd /root/
 hg clone https://bitbucket.org/sjodogne/orthanc-dicomweb
 cd orthanc-dicomweb
 hg up -c "$1"
@@ -44,5 +44,5 @@ make -j$COUNT_CORES
 cp -L libOrthancDicomWeb.so /usr/share/orthanc/plugins/
 
 # Remove the build directory to recover space
-cd /home/
-rm -rf /home/orthanc-dicomweb
+cd /root/
+rm -rf /root/orthanc-dicomweb
