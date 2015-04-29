@@ -1,4 +1,4 @@
-FROM orthanc
+FROM jodogne/orthanc
 
 MAINTAINER Sebastien Jodogne <s.jodogne@gmail.com>
 LABEL Description="Official plugins for Orthanc" Vendor="Sebastien Jodogne, University Hospital of Liege"

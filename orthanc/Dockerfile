@@ -1,4 +1,4 @@
-FROM base
+FROM jodogne/base
 
 MAINTAINER Sebastien Jodogne <s.jodogne@gmail.com>
 LABEL Description="Latest release of Orthanc" Vendor="Sebastien Jodogne, University Hospital of Liege"
