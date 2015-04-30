@@ -70,5 +70,7 @@ Orthanc --config=$CONFIG
 sed 's/\("Name" : \)".*"/\1"Orthanc inside Docker"/' -i $CONFIG
 sed 's/\("IndexDirectory" : \)".*"/\1"\/var\/lib\/orthanc\/db"/' -i $CONFIG
 sed 's/\("StorageDirectory" : \)".*"/\1"\/var\/lib\/orthanc\/db"/' -i $CONFIG
+sed 's/\("Plugins" : \[\)/\1 \n    "\/usr\/share\/orthanc\/plugins"/' -i $CONFIG
 sed 's/"RemoteAccessAllowed" : false/"RemoteAccessAllowed" : true/' -i $CONFIG
-sed 's/\("Plugins" : \[\)/\1 "\/usr\/share\/orthanc\/plugins"/' -i $CONFIG
+sed 's/"AuthenticationEnabled" : false/"AuthenticationEnabled" : true/' -i $CONFIG
+sed 's/\("RegisteredUsers" : {\)/\1\n    "orthanc" : "orthanc"/' -i $CONFIG
