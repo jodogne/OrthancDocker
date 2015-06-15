@@ -49,16 +49,8 @@ cmake "-DDCMTK_LIBRARIES:PATH=boost_locale;CharLS;dcmjpls;wrap;oflog" \
     -DUSE_SYSTEM_PUGIXML:BOOL=OFF \
     ..
 make -j$COUNT_CORES
-./UnitTests
+./UnitTests --gtest_filter=-Lua.Http
 make install
-
-# Build the "ServeFolders" sample plugin
-cd /root/orthanc
-mkdir BuildServeFolders
-cd BuildServeFolders
-cmake -DCMAKE_BUILD_TYPE:STRING=Release ../Plugins/Samples/ServeFolders
-make -j$COUNT_CORES
-cp -L libServeFolders.so /usr/share/orthanc/plugins
 
 # Remove the build directory to recover space
 cd /root/
