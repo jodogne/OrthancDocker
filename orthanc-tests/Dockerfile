@@ -1,4 +1,4 @@
-FROM jodogne/orthanc
+FROM jodogne/orthanc:0.8.6
 
 MAINTAINER Sebastien Jodogne <s.jodogne@gmail.com>
 LABEL Description="Environment to run the integration tests of Orthanc" Vendor="Sebastien Jodogne, University Hospital of Liege"
