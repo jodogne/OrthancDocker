@@ -33,6 +33,7 @@ mkdir -p /usr/share/orthanc/plugins
 cd /root/
 hg clone https://s.jodogne@code.google.com/p/orthanc/ orthanc
 cd orthanc
+echo "Switching Orthanc to branch: $1"
 hg up -c "$1"
 
 # Install the Orthanc core and run the unit tests
@@ -51,14 +52,6 @@ cmake "-DDCMTK_LIBRARIES:PATH=boost_locale;CharLS;dcmjpls;wrap;oflog" \
 make -j$COUNT_CORES
 ./UnitTests
 make install
-
-# Build the "ServeFolders" sample plugin
-cd /root/orthanc
-mkdir BuildServeFolders
-cd BuildServeFolders
-cmake -DCMAKE_BUILD_TYPE:STRING=Release ../Plugins/Samples/ServeFolders
-make -j$COUNT_CORES
-cp -L libServeFolders.so /usr/share/orthanc/plugins
 
 # Remove the build directory to recover space
 cd /root/
