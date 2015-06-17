@@ -9,6 +9,12 @@ The following command will run the core of Orthanc:
 # sudo docker run -p 4242:4242 -p 8042:8042 --rm jodogne/orthanc
 ```
 
+You can also force the [version of Orthanc](https://registry.hub.docker.com/u/jodogne/orthanc/tags/manage/) to be run:
+
+```
+# sudo docker run -p 4242:4242 -p 8042:8042 --rm jodogne/orthanc:0.8.6
+```
+
 Once Orthanc is running, use Mozilla Firefox at URL [http://localhost:8042/](http://orthanc:orthanc@localhost:8042/app/explorer.html) to interact with Orthanc. The default username is `orthanc` and its password is `orthanc`.
 
 For security reasons, you should protect your instance of Orthanc by changing this default user, in the `RegisteredUsers` configuration option. You can use a custom [configuration file](https://code.google.com/p/orthanc/wiki/OrthancConfiguration) for Orthanc as follows:
