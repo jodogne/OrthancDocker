@@ -26,7 +26,7 @@ echo "Will use $COUNT_CORES parallel jobs to build Orthanc"
 
 # Clone the repository and switch to the requested branch
 cd /root/
-hg clone https://s.jodogne@code.google.com/p/orthanc-webviewer/
+hg clone ssh://hg@bitbucket.org/sjodogne/orthanc-webviewer/
 cd orthanc-webviewer
 hg up -c "$1"
 

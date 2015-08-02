@@ -31,7 +31,7 @@ mkdir -p /usr/share/orthanc/plugins
 
 # Clone the Orthanc repository and switch to the requested branch
 cd /root/
-hg clone https://s.jodogne@code.google.com/p/orthanc/ orthanc
+hg clone https://bitbucket.org/sjodogne/orthanc/ orthanc
 cd orthanc
 echo "Switching Orthanc to branch: $1"
 hg up -c "$1"

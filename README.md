@@ -28,7 +28,7 @@ For security reasons, you should protect your instance of Orthanc by changing th
 
 ## Usage, with plugins enabled
 
-The following command will run Orthanc, together with its [Web viewer](https://code.google.com/p/orthanc-webviewer/), its [PostgreSQL support](https://code.google.com/p/orthanc-postgresql/) and its [DICOMweb implementation](https://bitbucket.org/sjodogne/orthanc-dicomweb/):
+The following command will run Orthanc, together with its [Web viewer](http://www.orthanc-server.com/static.php?page=web-viewer), its [PostgreSQL support](http://www.orthanc-server.com/static.php?page=postgresql) and its [DICOMweb implementation](http://www.orthanc-server.com/static.php?page=dicomweb):
 
 ```
 # sudo docker run -p 4242:4242 -p 8042:8042 --rm jodogne/orthanc-plugins
