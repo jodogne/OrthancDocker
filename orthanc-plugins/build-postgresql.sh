@@ -26,7 +26,7 @@ echo "Will use $COUNT_CORES parallel jobs to build Orthanc"
 
 # Clone the repository and switch to the requested branch
 cd /root/
-hg clone https://s.jodogne@code.google.com/p/orthanc-postgresql/
+hg clone https://sjodogne@bitbucket.org/sjodogne/orthanc-postgresql/
 cd orthanc-postgresql
 hg up -c "$1"
 
