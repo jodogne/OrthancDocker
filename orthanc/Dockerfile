@@ -4,7 +4,7 @@ MAINTAINER Sebastien Jodogne <s.jodogne@gmail.com>
 LABEL Description="Latest release of Orthanc" Vendor="Sebastien Jodogne, University Hospital of Liege"
 
 ADD ./build.sh /root/build.sh
-RUN bash /root/build.sh "default"
+RUN bash /root/build.sh "0.9.3"
 
 VOLUME [ "/var/lib/orthanc/db" ]
 EXPOSE 4242
