@@ -3,6 +3,9 @@ FROM jodogne/base
 MAINTAINER Sebastien Jodogne <s.jodogne@gmail.com>
 LABEL Description="Latest release of Orthanc" Vendor="Sebastien Jodogne, University Hospital of Liege"
 
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install libgoogle-glog-dev && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 ADD ./build.sh /root/build.sh
 RUN bash /root/build.sh "Orthanc-0.8.6"
 
