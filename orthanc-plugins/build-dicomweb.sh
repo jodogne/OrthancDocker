@@ -30,7 +30,7 @@ hg clone https://bitbucket.org/sjodogne/orthanc-dicomweb/
 cd orthanc-dicomweb
 hg up -c "$1"
 
-# Build the plugin
+# Build the plugin (the GDCM version shipped with Ubuntu 12.04 is too old)
 mkdir Build
 cd Build
 cmake -DALLOW_DOWNLOADS:BOOL=ON \
@@ -38,6 +38,7 @@ cmake -DALLOW_DOWNLOADS:BOOL=ON \
     -DUSE_GTEST_DEBIAN_SOURCE_PACKAGE:BOOL=ON \
     -DUSE_SYSTEM_JSONCPP:BOOL=OFF \
     -DUSE_SYSTEM_PUGIXML:BOOL=OFF \
+    -DUSE_SYSTEM_GDCM:BOOL=OFF \
     ..
 make -j$COUNT_CORES
 ./UnitTests
