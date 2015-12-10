@@ -39,15 +39,10 @@ hg up -c "$1"
 # Install the Orthanc core and run the unit tests
 mkdir Build
 cd Build
-cmake "-DDCMTK_LIBRARIES:PATH=boost_locale;CharLS;dcmjpls;wrap;oflog" \
-    -DALLOW_DOWNLOADS:BOOL=ON \
-    -DCMAKE_BUILD_TYPE:STRING=Release \
-    -DCMAKE_INSTALL_PREFIX:PATH=/usr \
-    -DUSE_GTEST_DEBIAN_SOURCE_PACKAGE:BOOL=ON \
-    -DUSE_SYSTEM_GOOGLE_LOG:BOOL=OFF \
-    -DUSE_SYSTEM_JSONCPP:BOOL=OFF \
-    -DUSE_SYSTEM_MONGOOSE:BOOL=OFF \
-    -DUSE_SYSTEM_PUGIXML:BOOL=OFF \
+cmake -DALLOW_DOWNLOADS=ON \
+    -DUSE_GTEST_DEBIAN_SOURCE_PACKAGE=ON \
+    -DUSE_SYSTEM_MONGOOSE=OFF \
+    -DDCMTK_LIBRARIES=dcmjpls \
     ..
 make -j$COUNT_CORES
 ./UnitTests
