@@ -12,18 +12,31 @@ The following command will run the core of Orthanc:
 You can also force the [version of Orthanc](https://registry.hub.docker.com/u/jodogne/orthanc/tags/manage/) to be run:
 
 ```
-# sudo docker run -p 4242:4242 -p 8042:8042 --rm jodogne/orthanc:0.9.6
+# sudo docker run -p 4242:4242 -p 8042:8042 --rm jodogne/orthanc:1.0.0
 ```
 
 Once Orthanc is running, use Mozilla Firefox at URL [http://localhost:8042/](http://orthanc:orthanc@localhost:8042/app/explorer.html) to interact with Orthanc. The default username is `orthanc` and its password is `orthanc`.
 
-For security reasons, you should protect your instance of Orthanc by changing this default user, in the `RegisteredUsers` configuration option. You can use a custom [configuration file](https://orthanc.chu.ulg.ac.be/book/users/configuration.html) for Orthanc as follows:
+## Fine-tuning the configuration
+
+For security reasons, you should at least protect your instance of Orthanc by changing this default user, in the `RegisteredUsers` configuration option. You will also probably need to fine-tune other parameters, notably the list of the DICOM modalities Orthanc knows about.
+
+You can create a custom [configuration file](https://orthanc.chu.ulg.ac.be/book/users/configuration.html) for Orthanc as follows:
 
 ```
 # sudo docker run --rm --entrypoint=cat jodogne/orthanc /etc/orthanc/orthanc.json > /tmp/orthanc.json
   => Edit /tmp/orthanc.json
   => Modify the RegisteredUsers section
 # sudo docker run -p 4242:4242 -p 8042:8042 --rm -v /tmp/orthanc.json:/etc/orthanc/orthanc.json:ro jodogne/orthanc
+```
+
+## Making the Orthanc database persistent
+
+The filesystem of Docker containers is volatile (its content is deleted once the container stops). You can make the Orthanc database persistent by mapping the "/var/lib/orthanc/db" folder of the container to some path in the filesystem of your Linux host, e.g.:
+
+```
+# mkdir /tmp/orthanc-db
+# sudo docker run -p 4242:4242 -p 8042:8042 --rm -v /tmp/orthanc-db/:/var/lib/orthanc/db/ jodogne/orthanc:1.0.0 
 ```
 
 ## Usage, with plugins enabled
