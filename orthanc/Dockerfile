@@ -11,4 +11,4 @@ EXPOSE 4242
 EXPOSE 8042
 
 ENTRYPOINT [ "Orthanc" ]
-CMD [ "/etc/orthanc/orthanc.json" ]
+CMD [ "/etc/orthanc/" ]
