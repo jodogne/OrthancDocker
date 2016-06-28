@@ -13,7 +13,7 @@ ADD ./build-postgresql.sh /root/build-postgresql.sh
 RUN bash /root/build-postgresql.sh "OrthancPostgreSQL-2.0"
 
 ADD ./build-dicomweb.sh /root/build-dicomweb.sh
-RUN bash /root/build-dicomweb.sh "OrthancDicomWeb-0.2"
+RUN bash /root/build-dicomweb.sh "OrthancDicomWeb-0.3"
 
 VOLUME [ "/var/lib/orthanc/db" ]
 EXPOSE 4242
