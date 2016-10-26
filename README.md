@@ -55,16 +55,29 @@ The following command will run the mainline version of Orthanc, together with it
 
 ## Whole-slide imaging support
 
-The `orthanc-plugins` image includes support for  [whole-slide imaging (WSI)](http://www.orthanc-server.com/static.php?page=wsi). The WSI viewer plugin will transparently start together with Orthanc. The Dicomizer command-line tool can be invoked as follows:
+The `orthanc-plugins` image includes support for  [whole-slide imaging (WSI)](http://www.orthanc-server.com/static.php?page=wsi). For instance, the following command will start the WSI viewer plugin transparently together with Orthanc:
 
 ```
-# sudo docker run -t -i --rm --entrypoint=OrthancWSIDicomizer -v Image.tif:/tmp/Source.tif:ro jodogne/orthanc-plugins /tmp/Source.tif
+# sudo docker run -p 4242:4242 -p 8042:8042 --rm --name orthanc-wsi jodogne/orthanc-plugins:1.1.0
 ```
 
-Note how the source image `Image.tif` on the host computer is mapped into the Orthanc container as read-only file `/tmp/Source.tif` before invoking the Dicomizer. If you have a source image that is not a hierarchical TIFF, you must instruct the Dicomizer to use [OpenSlide](http://openslide.org/) to decode it as follows:
+Note that we gave the name `orthanc-wsi` to this new Docker container. Then, the Dicomizer command-line tool can be invoked as follows:
 
 ```
-# sudo docker run -t -i --rm --entrypoint=OrthancWSIDicomizer -v Image.svs:/tmp/Source.svs:ro jodogne/orthanc-plugins /tmp/Source.svs --openslide=libopenslide.so
+# sudo docker run -t -i --rm --link=orthanc-wsi:orthanc --entrypoint=OrthancWSIDicomizer -v /tmp/Source.tif:/tmp/Source.tif:ro jodogne/orthanc-plugins --username=orthanc --password=orthanc --orthanc=http://orthanc:8042/ /tmp/Source.tif
+```
+
+This command needs a few explanations:
+ * `--link=orthanc-wsi:orthanc` links the container running the Dicomizer, to the Docker container running Orthanc that we started just before.
+ * `--entrypoint=OrthancWSIDicomizer` specifies that the Dicomizer must be run instead of the Orthanc server.
+ * `-v /tmp/Source.tif:/tmp/Source.tif:ro` maps the source image `/tmp/Source.tif` on the host computer into the Orthanc container as read-only file `/tmp/Source.tif`.
+ * `--orthanc=http://orthanc:8042/` instructs the Dicomizer to push images through the `--link` created above.
+ * `--username=orthanc --password=orthanc` correspond to the default credentials of the `orthanc-plugins` image.
+ 
+If you have a source image that is not a hierarchical TIFF, you must instruct the Dicomizer to use [OpenSlide](http://openslide.org/) to decode it by adding the `--openslide` option:
+
+```
+# sudo docker run -t -i --rm --link=orthanc-wsi:orthanc --entrypoint=OrthancWSIDicomizer -v /tmp/Source.svs:/tmp/Source.svs:ro jodogne/orthanc-plugins --username=orthanc --password=orthanc --orthanc=http://orthanc:8042/ --openslide=libopenslide.so /tmp/Source.svs
 ```
 
 
