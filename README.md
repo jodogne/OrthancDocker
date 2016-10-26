@@ -58,13 +58,13 @@ The following command will run the mainline version of Orthanc, together with it
 The `orthanc-plugins` image includes support for  [whole-slide imaging (WSI)](http://www.orthanc-server.com/static.php?page=wsi). The WSI viewer plugin will transparently start together with Orthanc. The Dicomizer command-line tool can be invoked as follows:
 
 ```
-# sudo docker run --rm --entrypoint=/usr/local/bin/OrthancWSIDicomizer -v Image.tif:/tmp/Source.tif:ro jodogne/orthanc-plugins /tmp/Source.tif
+# sudo docker run -t -i --rm --entrypoint=OrthancWSIDicomizer -v Image.tif:/tmp/Source.tif:ro jodogne/orthanc-plugins /tmp/Source.tif
 ```
 
 Note how the source image `Image.tif` on the host computer is mapped into the Orthanc container as read-only file `/tmp/Source.tif` before invoking the Dicomizer. If you have a source image that is not a hierarchical TIFF, you must instruct the Dicomizer to use [OpenSlide](http://openslide.org/) to decode it as follows:
 
 ```
-# sudo docker run --rm --entrypoint=/usr/local/bin/OrthancWSIDicomizer -v Image.svs:/tmp/Source.svs:ro jodogne/orthanc-plugins /tmp/Source.svs --openslide=libopenslide.so
+# sudo docker run -t -i --rm --entrypoint=OrthancWSIDicomizer -v Image.svs:/tmp/Source.svs:ro jodogne/orthanc-plugins /tmp/Source.svs --openslide=libopenslide.so
 ```
 
 
