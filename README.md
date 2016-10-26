@@ -47,7 +47,7 @@ The filesystem of Docker containers is volatile (its content is deleted once the
 
 ## Usage, with plugins enabled
 
-The following command will run the mainline version of Orthanc, together with its [Web viewer](http://www.orthanc-server.com/static.php?page=web-viewer), its [PostgreSQL support](http://www.orthanc-server.com/static.php?page=postgresql) and its [DICOMweb implementation](http://www.orthanc-server.com/static.php?page=dicomweb):
+The following command will run the mainline version of Orthanc, together with its [Web viewer](http://www.orthanc-server.com/static.php?page=web-viewer), its [PostgreSQL support](http://www.orthanc-server.com/static.php?page=postgresql), its [DICOMweb implementation](http://www.orthanc-server.com/static.php?page=dicomweb), and its [whole-slide imaging viewer](http://www.orthanc-server.com/static.php?page=wsi):
 
 ```
 # sudo docker run -p 4242:4242 -p 8042:8042 --rm jodogne/orthanc-plugins
@@ -93,4 +93,13 @@ Finally, you can start Orthanc:
 
 ```
 # sudo docker run -p 4242:4242 -p 8042:8042 --rm -v /tmp/orthanc.json:/etc/orthanc/orthanc.json:ro jodogne/orthanc-plugins
+```
+
+## Debugging
+
+For debugging purpose, you can start an interactive bash session as follows:
+
+```
+# sudo docker run -i -t --rm --entrypoint=bash jodogne/orthanc
+# sudo docker run -i -t --rm --entrypoint=bash jodogne/orthanc-plugins
 ```
