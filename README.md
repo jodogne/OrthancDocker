@@ -38,7 +38,7 @@ You can create a custom [configuration file](https://orthanc.chu.ulg.ac.be/book/
 
 ## Making the Orthanc database persistent
 
-The filesystem of Docker containers is volatile (its content is deleted once the container stops). You can make the Orthanc database persistent by mapping the "/var/lib/orthanc/db" folder of the container to some path in the filesystem of your Linux host, e.g.:
+The filesystem of Docker containers is volatile (its content is deleted once the container stops). You can make the Orthanc database persistent by mapping the `/var/lib/orthanc/db` folder of the container to some path in the filesystem of your Linux host, e.g.:
 
 ```
 # mkdir /tmp/orthanc-db
@@ -52,6 +52,21 @@ The following command will run the mainline version of Orthanc, together with it
 ```
 # sudo docker run -p 4242:4242 -p 8042:8042 --rm jodogne/orthanc-plugins
 ```
+
+## Whole-slide imaging support
+
+The `orthanc-plugins` image includes support for  [whole-slide imaging (WSI)](http://www.orthanc-server.com/static.php?page=wsi). The WSI viewer plugin will transparently start together with Orthanc. The Dicomizer command-line tool can be invoked as follows:
+
+```
+# sudo docker run --rm --entrypoint=/usr/local/bin/OrthancWSIDicomizer -v Image.tif:/tmp/Source.tif:ro jodogne/orthanc-plugins /tmp/Source.tif
+```
+
+Note how the source image `Image.tif` on the host computer is mapped into the Orthanc container as read-only file `/tmp/Source.tif` before invoking the Dicomizer. If you have a source image that is not a hierarchical TIFF, you must instruct the Dicomizer to use [OpenSlide](http://openslide.org/) to decode it as follows:
+
+```
+# sudo docker run --rm --entrypoint=/usr/local/bin/OrthancWSIDicomizer -v Image.svs:/tmp/Source.svs:ro jodogne/orthanc-plugins /tmp/Source.svs --openslide=libopenslide.so
+```
+
 
 ## PostgreSQL and Orthanc inside Docker
 
