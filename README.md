@@ -73,7 +73,9 @@ This command needs a few explanations:
  * `-v /tmp/Source.tif:/tmp/Source.tif:ro` maps the source image `/tmp/Source.tif` on the host computer into the Orthanc container as read-only file `/tmp/Source.tif`.
  * `--orthanc=http://orthanc:8042/` instructs the Dicomizer to push images through the `--link` created above.
  * `--username=orthanc --password=orthanc` correspond to the default credentials of the `orthanc-plugins` image.
- 
+
+Obviously, you are free to add all the options you wish (check out the `--help` flag to list these options). In particular, the `--dataset` option allows to specify DICOM tags, in the JSON file format, so as to include them in the resulting DICOM series (the option `--sample-dataset` prints a sample JSON file that has the expected format).
+
 If you have a source image that is not a hierarchical TIFF, you must instruct the Dicomizer to use [OpenSlide](http://openslide.org/) to decode it by adding the `--openslide` option:
 
 ```
