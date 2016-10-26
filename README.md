@@ -12,13 +12,13 @@ The following command will run the core of Orthanc:
 You can also force the [version of Orthanc](https://registry.hub.docker.com/u/jodogne/orthanc/tags/manage/) to be run:
 
 ```
-# sudo docker run -p 4242:4242 -p 8042:8042 --rm jodogne/orthanc:1.0.0
+# sudo docker run -p 4242:4242 -p 8042:8042 --rm jodogne/orthanc:1.1.0
 ```
 
 Passing additional command-line options (e.g. to make Orthanc verbose) can be done as follows:
 
 ```
-# sudo docker run -p 4242:4242 -p 8042:8042 --rm jodogne/orthanc --verbose
+# sudo docker run -p 4242:4242 -p 8042:8042 --rm jodogne/orthanc /etc/orthanc --verbose
 ```
 
 Once Orthanc is running, use Mozilla Firefox at URL [http://localhost:8042/](http://orthanc:orthanc@localhost:8042/app/explorer.html) to interact with Orthanc. The default username is `orthanc` and its password is `orthanc`.
@@ -47,7 +47,7 @@ The filesystem of Docker containers is volatile (its content is deleted once the
 
 ## Usage, with plugins enabled
 
-The following command will run the mainline version of Orthanc, together with its [Web viewer](http://www.orthanc-server.com/static.php?page=web-viewer), its [PostgreSQL support](http://www.orthanc-server.com/static.php?page=postgresql) and its [DICOMweb implementation](http://www.orthanc-server.com/static.php?page=dicomweb):
+The following command will run the mainline version of Orthanc, together with its [Web viewer](http://www.orthanc-server.com/static.php?page=web-viewer), its [PostgreSQL support](http://www.orthanc-server.com/static.php?page=postgresql), its [DICOMweb implementation](http://www.orthanc-server.com/static.php?page=dicomweb), and its [whole-slide imaging viewer](http://www.orthanc-server.com/static.php?page=wsi):
 
 ```
 # sudo docker run -p 4242:4242 -p 8042:8042 --rm jodogne/orthanc-plugins
@@ -93,4 +93,13 @@ Finally, you can start Orthanc:
 
 ```
 # sudo docker run -p 4242:4242 -p 8042:8042 --rm -v /tmp/orthanc.json:/etc/orthanc/orthanc.json:ro jodogne/orthanc-plugins
+```
+
+## Debugging
+
+For debugging purpose, you can start an interactive bash session as follows:
+
+```
+# sudo docker run -i -t --rm --entrypoint=bash jodogne/orthanc
+# sudo docker run -i -t --rm --entrypoint=bash jodogne/orthanc-plugins
 ```
