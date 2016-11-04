@@ -1,6 +1,8 @@
 # Orthanc for Docker
 [Docker Hub](https://www.docker.com/) repository to build [Orthanc](http://www.orthanc-server.com/) and its official plugins. Orthanc is a lightweight, RESTful Vendor Neutral Archive for medical imaging.
 
+_Note for CentOS users: The Docker environment might be difficult to configure on your platform. Hints are available on the [Orthanc Users discussion group](https://groups.google.com/d/msg/orthanc-users/w-uPAknnRQc/-XhzBGSCAwAJ)._
+
 ## Usage, with plugins disabled
 
 The following command will run the core of Orthanc:
