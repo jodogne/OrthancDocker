@@ -43,13 +43,13 @@ cmake \
     -DALLOW_DOWNLOADS=ON \
     -DCMAKE_BUILD_TYPE:STRING=Release \
     -DSTANDALONE_BUILD=ON \
-    -DUSE_DCMTK_361=ON \
+    -DUSE_DCMTK_362=ON \
     -DUSE_GTEST_DEBIAN_SOURCE_PACKAGE=ON \
     -DUSE_SYSTEM_DCMTK=OFF \
     -DUSE_SYSTEM_MONGOOSE=OFF \
     ..
 make -j$COUNT_CORES
-./UnitTests
+./UnitTests --gtest_filter=-Toolbox.CaseWithAccents   # No locale available
 make install
 
 # Remove the build directory to recover space
