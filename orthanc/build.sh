@@ -36,7 +36,7 @@ cd orthanc
 echo "Switching Orthanc to branch: $1"
 hg up -c "$1"
 
-# Install the Orthanc core and run the unit tests
+# Build the Orthanc core
 mkdir Build
 cd Build
 cmake \
@@ -49,7 +49,14 @@ cmake \
     -DUSE_SYSTEM_MONGOOSE=OFF \
     ..
 make -j$COUNT_CORES
-./UnitTests --gtest_filter=-Toolbox.CaseWithAccents   # No locale available
+
+# To run the unit tests, we need to install the "en_US" locale
+locale-gen en_US
+locale-gen en_US.UTF-8
+update-locale 
+./UnitTests
+
+# Install the Orthanc core
 make install
 
 # Remove the build directory to recover space
