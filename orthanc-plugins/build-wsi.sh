@@ -36,6 +36,7 @@ mkdir Build
 cd Build
 cmake -DALLOW_DOWNLOADS:BOOL=ON \
     -DCMAKE_BUILD_TYPE:STRING=Release \
+    -DUSE_SYSTEM_DCMTK:BOOL=OFF \
     -DUSE_SYSTEM_JSONCPP:BOOL=OFF \
     ..
 make -j$COUNT_CORES
