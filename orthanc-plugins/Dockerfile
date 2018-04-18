@@ -7,16 +7,16 @@ RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install libgdcm2-dev libjpeg-dev postgresql-server-dev-all libtiff-dev libopenjpeg-dev libopenslide-dev && rm -rf /var/lib/apt/lists/*
 
 ADD ./build-webviewer.sh /root/build-webviewer.sh
-RUN bash /root/build-webviewer.sh "2.3"
+RUN bash /root/build-webviewer.sh "OrthancWebViewer-2.3"
 
 ADD ./build-postgresql.sh /root/build-postgresql.sh
-RUN bash /root/build-postgresql.sh "2.0"
+RUN bash /root/build-postgresql.sh "OrthancPostgreSQL-2.0"
 
 ADD ./build-dicomweb.sh /root/build-dicomweb.sh
-RUN bash /root/build-dicomweb.sh "0.4"
+RUN bash /root/build-dicomweb.sh "OrthancDicomWeb-0.4"
 
 ADD ./build-wsi.sh /root/build-wsi.sh
-RUN bash /root/build-wsi.sh "0.4"
+RUN bash /root/build-wsi.sh "OrthancWSI-0.4"
 
 VOLUME [ "/var/lib/orthanc/db" ]
 EXPOSE 4242
