@@ -10,7 +10,7 @@ ADD ./build-webviewer.sh /root/build-webviewer.sh
 RUN bash /root/build-webviewer.sh "OrthancWebViewer-2.3"
 
 ADD ./build-postgresql.sh /root/build-postgresql.sh
-RUN bash /root/build-postgresql.sh "OrthancPostgreSQL-2.0"
+RUN bash /root/build-postgresql.sh "OrthancPostgreSQL-2.1"
 
 ADD ./build-dicomweb.sh /root/build-dicomweb.sh
 RUN bash /root/build-dicomweb.sh "OrthancDicomWeb-0.5"
