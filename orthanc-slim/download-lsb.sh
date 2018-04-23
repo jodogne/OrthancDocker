@@ -3,23 +3,33 @@
 set -e
 cd
 
+URL=http://lsb.orthanc-server.com/
+VERSION_ORTHANC=mainline
+VERSION_DICOM_WEB=mainline
+VERSION_POSTGRESQL=mainline
+VERSION_WEB_VIEWER=mainline
+VERSION_WSI=mainline
+
 # Download binaries compiled with Linux Standard Base
-URL=http://buildbot.orthanc-server.com/linux-standard-base/2018-01-04
-wget ${URL}/Orthanc
-wget ${URL}/OrthancRecoverCompressedFile
-wget ${URL}/OrthancWSIDicomToTiff
-wget ${URL}/OrthancWSIDicomizer
-wget ${URL}/UnitTests-DicomWeb
-wget ${URL}/UnitTests-Orthanc
-wget ${URL}/UnitTests-PostgreSQL
-wget ${URL}/UnitTests-WebViewer
-wget ${URL}/libModalityWorklists.so
-wget ${URL}/libOrthancDicomWeb.so
-wget ${URL}/libOrthancPostgreSQLIndex.so
-wget ${URL}/libOrthancPostgreSQLStorage.so
-wget ${URL}/libOrthancWSI.so
-wget ${URL}/libOrthancWebViewer.so
-wget ${URL}/libServeFolders.so
+wget ${URL}/orthanc/${VERSION_ORTHANC}/Orthanc
+wget ${URL}/orthanc/${VERSION_ORTHANC}/OrthancRecoverCompressedFile
+wget ${URL}/orthanc/${VERSION_ORTHANC}/UnitTests -O - > UnitTests-Orthanc
+wget ${URL}/orthanc/${VERSION_ORTHANC}/libModalityWorklists.so
+wget ${URL}/orthanc/${VERSION_ORTHANC}/libServeFolders.so
+
+wget ${URL}/plugin-dicom-web/${VERSION_DICOM_WEB}/UnitTests -O - > UnitTests-DicomWeb
+wget ${URL}/plugin-dicom-web/${VERSION_DICOM_WEB}/libOrthancDicomWeb.so
+
+wget ${URL}/plugin-postgresql/${VERSION_POSTGRESQL}/UnitTests -O - > UnitTests-PostgreSQL
+wget ${URL}/plugin-postgresql/${VERSION_POSTGRESQL}/libOrthancPostgreSQLIndex.so
+wget ${URL}/plugin-postgresql/${VERSION_POSTGRESQL}/libOrthancPostgreSQLStorage.so
+
+wget ${URL}/plugin-webviewer/${VERSION_WEB_VIEWER}/UnitTests -O - > UnitTests-WebViewer
+wget ${URL}/plugin-webviewer/${VERSION_WEB_VIEWER}/libOrthancWebViewer.so
+
+wget ${URL}/whole-slide-imaging/${VERSION_WSI}/OrthancWSIDicomToTiff
+wget ${URL}/whole-slide-imaging/${VERSION_WSI}/OrthancWSIDicomizer
+wget ${URL}/whole-slide-imaging/${VERSION_WSI}/libOrthancWSI.so
 
 chmod +x ./Orthanc
 chmod +x ./OrthancRecoverCompressedFile
@@ -33,8 +43,8 @@ chmod +x ./UnitTests-WebViewer
 # Run the unit tests
 mkdir ~/UnitTests
 cd ~/UnitTests
-../UnitTests-DicomWeb
 ../UnitTests-Orthanc
+../UnitTests-DicomWeb
 # ../UnitTests-PostgreSQL
 ../UnitTests-WebViewer
 
