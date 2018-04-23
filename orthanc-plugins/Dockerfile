@@ -16,7 +16,7 @@ ADD ./build-dicomweb.sh /root/build-dicomweb.sh
 RUN bash /root/build-dicomweb.sh "OrthancDicomWeb-0.5"
 
 ADD ./build-wsi.sh /root/build-wsi.sh
-RUN bash /root/build-wsi.sh "OrthancWSI-0.4"
+RUN bash /root/build-wsi.sh "OrthancWSI-0.5"
 
 VOLUME [ "/var/lib/orthanc/db" ]
 EXPOSE 4242
