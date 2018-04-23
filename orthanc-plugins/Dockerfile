@@ -7,7 +7,7 @@ RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install libgdcm2-dev libjpeg-dev postgresql-server-dev-all libtiff-dev libopenjpeg-dev libopenslide-dev && rm -rf /var/lib/apt/lists/*
 
 ADD ./build-webviewer.sh /root/build-webviewer.sh
-RUN bash /root/build-webviewer.sh "OrthancWebViewer-2.3"
+RUN bash /root/build-webviewer.sh "OrthancWebViewer-2.4"
 
 ADD ./build-postgresql.sh /root/build-postgresql.sh
 RUN bash /root/build-postgresql.sh "OrthancPostgreSQL-2.1"
