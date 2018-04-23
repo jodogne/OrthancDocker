@@ -3,7 +3,7 @@ FROM jodogne/orthanc:1.3.2
 MAINTAINER Sebastien Jodogne <s.jodogne@gmail.com>
 LABEL Description="Official plugins for Orthanc" Vendor="Sebastien Jodogne, University Hospital of Liege"
 
-RUN apt-get update
+RUN apt-get clean && apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install libgdcm2-dev libjpeg-dev postgresql-server-dev-all libtiff-dev libopenjpeg-dev libopenslide-dev && rm -rf /var/lib/apt/lists/*
 
 ADD ./build-webviewer.sh /root/build-webviewer.sh
