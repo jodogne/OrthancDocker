@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM debian:jessie
 
 MAINTAINER Sebastien Jodogne <s.jodogne@gmail.com>
 LABEL Description="Base environment to build Orthanc" Vendor="The Orthanc project"
