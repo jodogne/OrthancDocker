@@ -1,12 +1,20 @@
-FROM jodogne/base
+FROM debian:wheezy-slim
 
 MAINTAINER Sebastien Jodogne <s.jodogne@gmail.com>
-LABEL Description="Latest release of Orthanc" Vendor="Sebastien Jodogne, University Hospital of Liege"
+LABEL Description="Orthanc, free DICOM server" Vendor="The Orthanc project"
 
-RUN apt-get clean && apt-get update
+WORKDIR /root/
 
-ADD ./build.sh /root/build.sh
-RUN bash /root/build.sh "Orthanc-1.3.2"
+ADD ./setup-locales.sh ./setup-locales.sh
+RUN bash ./setup-locales.sh
+
+ADD ./download-orthanc.sh ./download-orthanc.sh
+RUN bash ./download-orthanc.sh
+
+ADD ./create-config.sh ./create-config.sh
+RUN bash ./create-config.sh
+
+RUN rm ./setup-locales.sh ./download-orthanc.sh ./create-config.sh
 
 VOLUME [ "/var/lib/orthanc/db" ]
 EXPOSE 4242
