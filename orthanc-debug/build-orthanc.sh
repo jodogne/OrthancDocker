@@ -59,9 +59,10 @@ update-locale
 # Install the Orthanc core
 make install
 
-# Remove the build directory to recover space
-cd /root/
-rm -rf /root/orthanc
+# Don't remove the build directory to recover space, as this
+# is a debug image
+#cd /root/
+#rm -rf /root/orthanc
 
 # Auto-generate, then patch the configuration file
 CONFIG=/etc/orthanc/orthanc.json
