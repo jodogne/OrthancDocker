@@ -10,7 +10,7 @@ VERSION_POSTGRESQL=3.0
 VERSION_MYSQL=2.0
 VERSION_TRANSFERS=mainline
 VERSION_WEB_VIEWER=2.4
-VERSION_WSI=0.5
+VERSION_WSI=0.6
 
 # Download binaries compiled with Linux Standard Base
 wget ${URL}/plugin-dicom-web/${VERSION_DICOM_WEB}/UnitTests -O - > UnitTests-DicomWeb
