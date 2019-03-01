@@ -4,7 +4,7 @@ set -e
 cd
 
 URL=http://lsb.orthanc-server.com/
-VERSION_ORTHANC=mainline
+VERSION_ORTHANC=1.5.6
 
 # Download binaries compiled with Linux Standard Base
 wget ${URL}/orthanc/${VERSION_ORTHANC}/Orthanc
