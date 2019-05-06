@@ -1,4 +1,4 @@
-FROM debian:wheezy-slim
+FROM debian:stable-slim
 
 MAINTAINER Sebastien Jodogne <s.jodogne@gmail.com>
 LABEL Description="Orthanc, free DICOM server" Vendor="The Orthanc project"
