@@ -5,9 +5,11 @@ cd
 
 URL=http://lsb.orthanc-server.com/
 
+VERSION_AUTHORIZATION=0.2.3
 VERSION_DICOM_WEB=0.6
-VERSION_POSTGRESQL=3.2
+VERSION_GCP=mainline
 VERSION_MYSQL=2.0
+VERSION_POSTGRESQL=3.2
 VERSION_TRANSFERS=1.0
 VERSION_WEB_VIEWER=2.5
 VERSION_WSI=0.6
@@ -33,6 +35,10 @@ wget ${URL}/plugin-webviewer/${VERSION_WEB_VIEWER}/libOrthancWebViewer.so
 wget ${URL}/whole-slide-imaging/${VERSION_WSI}/OrthancWSIDicomToTiff
 wget ${URL}/whole-slide-imaging/${VERSION_WSI}/OrthancWSIDicomizer
 wget ${URL}/whole-slide-imaging/${VERSION_WSI}/libOrthancWSI.so
+
+wget ${URL}/plugin-authorization/${VERSION_AUTHORIZATION}/libOrthancAuthorization.so
+
+wget ${URL}/plugin-google-cloud/docker/${VERSION_GCP}/libOrthancGoogleCloudPlatform.so
 
 chmod +x ./OrthancWSIDicomToTiff
 chmod +x ./OrthancWSIDicomizer
@@ -61,13 +67,15 @@ rm -rf ./UnitTests-Transfers
 rm -rf ./UnitTests-WebViewer
 
 # Move the binaries to their final location
-mv ./OrthancWSIDicomToTiff          /usr/local/bin/
-mv ./OrthancWSIDicomizer            /usr/local/bin/
-mv ./libOrthancDicomWeb.so          /usr/local/share/orthanc/plugins/
-mv ./libOrthancPostgreSQLIndex.so   /usr/local/share/orthanc/plugins/
-mv ./libOrthancPostgreSQLStorage.so /usr/local/share/orthanc/plugins/
-mv ./libOrthancMySQLIndex.so        /usr/local/share/orthanc/plugins/
-mv ./libOrthancMySQLStorage.so      /usr/local/share/orthanc/plugins/
-mv ./libOrthancTransfers.so         /usr/local/share/orthanc/plugins/
-mv ./libOrthancWSI.so               /usr/local/share/orthanc/plugins/
-mv ./libOrthancWebViewer.so         /usr/local/share/orthanc/plugins/
+mv ./OrthancWSIDicomToTiff             /usr/local/bin/
+mv ./OrthancWSIDicomizer               /usr/local/bin/
+mv ./libOrthancDicomWeb.so             /usr/local/share/orthanc/plugins/
+mv ./libOrthancPostgreSQLIndex.so      /usr/local/share/orthanc/plugins/
+mv ./libOrthancPostgreSQLStorage.so    /usr/local/share/orthanc/plugins/
+mv ./libOrthancMySQLIndex.so           /usr/local/share/orthanc/plugins/
+mv ./libOrthancMySQLStorage.so         /usr/local/share/orthanc/plugins/
+mv ./libOrthancTransfers.so            /usr/local/share/orthanc/plugins/
+mv ./libOrthancWSI.so                  /usr/local/share/orthanc/plugins/
+mv ./libOrthancWebViewer.so            /usr/local/share/orthanc/plugins/
+mv ./libOrthancAuthorization.so        /usr/local/share/orthanc/plugins/
+mv ./libOrthancGoogleCloudPlatform.so  /usr/local/share/orthanc/plugins/
