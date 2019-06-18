@@ -38,7 +38,7 @@ wget ${URL}/whole-slide-imaging/${VERSION_WSI}/libOrthancWSI.so
 
 wget ${URL}/plugin-authorization/${VERSION_AUTHORIZATION}/libOrthancAuthorization.so
 
-wget ${URL}/plugin-google-cloud/docker/${VERSION_GCP}/libOrthancGoogleCloudPlatform.so
+wget ${URL}/plugin-google-cloud/${VERSION_GCP}/libOrthancGoogleCloudPlatform.so
 
 chmod +x ./OrthancWSIDicomToTiff
 chmod +x ./OrthancWSIDicomizer
