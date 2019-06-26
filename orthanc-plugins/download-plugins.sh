@@ -5,14 +5,14 @@ cd
 
 URL=http://lsb.orthanc-server.com/
 
-VERSION_AUTHORIZATION=mainline
-VERSION_DICOM_WEB=mainline
+VERSION_AUTHORIZATION=0.2.3
+VERSION_DICOM_WEB=0.6
 VERSION_GCP=mainline
-VERSION_MYSQL=mainline
-VERSION_POSTGRESQL=mainline
-VERSION_TRANSFERS=mainline
-VERSION_WEB_VIEWER=mainline
-VERSION_WSI=mainline
+VERSION_MYSQL=2.0
+VERSION_POSTGRESQL=3.2
+VERSION_TRANSFERS=1.0
+VERSION_WEB_VIEWER=2.5
+VERSION_WSI=0.6
 
 # Download binaries compiled with Linux Standard Base
 wget ${URL}/plugin-dicom-web/${VERSION_DICOM_WEB}/UnitTests -O - > UnitTests-DicomWeb
