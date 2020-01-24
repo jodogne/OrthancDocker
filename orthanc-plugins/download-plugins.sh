@@ -15,7 +15,12 @@ VERSION_WEB_VIEWER=mainline
 VERSION_WSI=mainline
 
 # Download binaries compiled with Linux Standard Base
-wget ${URL}/plugin-dicom-web/${VERSION_DICOM_WEB}/UnitTests -O - > UnitTests-DicomWeb
+
+# 2020-01-24: The DICOMweb and Web viewer plugins have no unit test
+# anymore, as they are now built using the Holy Build Box because of
+# incompatibility between GDCM 3.0 and LSB compilers
+
+#wget ${URL}/plugin-dicom-web/${VERSION_DICOM_WEB}/UnitTests -O - > UnitTests-DicomWeb
 wget ${URL}/plugin-dicom-web/${VERSION_DICOM_WEB}/libOrthancDicomWeb.so
 
 wget ${URL}/plugin-postgresql/${VERSION_POSTGRESQL}/UnitTests -O - > UnitTests-PostgreSQL
@@ -29,7 +34,7 @@ wget ${URL}/plugin-mysql/${VERSION_MYSQL}/libOrthancMySQLStorage.so
 wget ${URL}/plugin-transfers/${VERSION_TRANSFERS}/UnitTests -O - > UnitTests-Transfers
 wget ${URL}/plugin-transfers/${VERSION_TRANSFERS}/libOrthancTransfers.so
 
-wget ${URL}/plugin-webviewer/${VERSION_WEB_VIEWER}/UnitTests -O - > UnitTests-WebViewer
+#wget ${URL}/plugin-webviewer/${VERSION_WEB_VIEWER}/UnitTests -O - > UnitTests-WebViewer
 wget ${URL}/plugin-webviewer/${VERSION_WEB_VIEWER}/libOrthancWebViewer.so
 
 wget ${URL}/whole-slide-imaging/${VERSION_WSI}/OrthancWSIDicomToTiff
@@ -42,20 +47,20 @@ wget ${URL}/plugin-google-cloud/${VERSION_GCP}/libOrthancGoogleCloudPlatform.so
 
 chmod +x ./OrthancWSIDicomToTiff
 chmod +x ./OrthancWSIDicomizer
-chmod +x ./UnitTests-DicomWeb
+#chmod +x ./UnitTests-DicomWeb
 chmod +x ./UnitTests-PostgreSQL
 chmod +x ./UnitTests-MySQL
 chmod +x ./UnitTests-Transfers
-chmod +x ./UnitTests-WebViewer
+#chmod +x ./UnitTests-WebViewer
 
 # Run the unit tests
 mkdir ~/UnitTests
 cd ~/UnitTests
-../UnitTests-DicomWeb
+#../UnitTests-DicomWeb
 # ../UnitTests-PostgreSQL
 # ../UnitTests-MySQL
 ../UnitTests-Transfers
-../UnitTests-WebViewer
+#../UnitTests-WebViewer
 
 # Recover space used by the unit tests
 cd
