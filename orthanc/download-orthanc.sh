@@ -10,6 +10,7 @@ VERSION_ORTHANC=mainline
 wget ${URL}/orthanc/${VERSION_ORTHANC}/Orthanc
 wget ${URL}/orthanc/${VERSION_ORTHANC}/OrthancRecoverCompressedFile
 wget ${URL}/orthanc/${VERSION_ORTHANC}/UnitTests -O - > UnitTests-Orthanc
+wget ${URL}/orthanc/${VERSION_ORTHANC}/libConnectivityChecks.so
 wget ${URL}/orthanc/${VERSION_ORTHANC}/libModalityWorklists.so
 wget ${URL}/orthanc/${VERSION_ORTHANC}/libServeFolders.so
 
@@ -34,5 +35,6 @@ mkdir -p /usr/local/share/orthanc/plugins/
 
 mv ./Orthanc                        /usr/local/sbin/
 mv ./OrthancRecoverCompressedFile   /usr/local/bin/
+mv ./libConnectivityChecks.so       /usr/local/share/orthanc/plugins/
 mv ./libModalityWorklists.so        /usr/local/share/orthanc/plugins/
 mv ./libServeFolders.so             /usr/local/share/orthanc/plugins/
