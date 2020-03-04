@@ -6,7 +6,7 @@ cd
 URL=http://lsb.orthanc-server.com/
 
 VERSION_AUTHORIZATION=0.2.3
-VERSION_DICOM_WEB=1.0
+VERSION_DICOM_WEB=1.1
 VERSION_GCP=1.0
 VERSION_MYSQL=2.0
 VERSION_POSTGRESQL=3.2
@@ -15,7 +15,7 @@ VERSION_WEB_VIEWER=2.5
 VERSION_WSI=0.6
 
 # Download binaries compiled with Linux Standard Base
-wget ${URL}/plugin-dicom-web/${VERSION_DICOM_WEB}/UnitTests -O - > UnitTests-DicomWeb
+#wget ${URL}/plugin-dicom-web/${VERSION_DICOM_WEB}/UnitTests -O - > UnitTests-DicomWeb
 wget ${URL}/plugin-dicom-web/${VERSION_DICOM_WEB}/libOrthancDicomWeb.so
 
 wget ${URL}/plugin-postgresql/${VERSION_POSTGRESQL}/UnitTests -O - > UnitTests-PostgreSQL
@@ -42,7 +42,7 @@ wget ${URL}/plugin-google-cloud/${VERSION_GCP}/libOrthancGoogleCloudPlatform.so
 
 chmod +x ./OrthancWSIDicomToTiff
 chmod +x ./OrthancWSIDicomizer
-chmod +x ./UnitTests-DicomWeb
+#chmod +x ./UnitTests-DicomWeb
 chmod +x ./UnitTests-PostgreSQL
 chmod +x ./UnitTests-MySQL
 chmod +x ./UnitTests-Transfers
@@ -51,7 +51,7 @@ chmod +x ./UnitTests-WebViewer
 # Run the unit tests
 mkdir ~/UnitTests
 cd ~/UnitTests
-../UnitTests-DicomWeb
+# ../UnitTests-DicomWeb
 # ../UnitTests-PostgreSQL
 # ../UnitTests-MySQL
 ../UnitTests-Transfers
