@@ -22,3 +22,6 @@ EXPOSE 8042
 
 ENTRYPOINT [ "Orthanc" ]
 CMD [ "/etc/orthanc/" ]
+
+# https://groups.google.com/d/msg/orthanc-users/qWqxpvCPv8g/Z8huoA5FDAAJ
+ENV MALLOC_ARENA_MAX 5
