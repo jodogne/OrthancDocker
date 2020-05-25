@@ -8,6 +8,7 @@ URL=http://lsb.orthanc-server.com/
 VERSION_AUTHORIZATION=mainline
 VERSION_DICOM_WEB=mainline
 VERSION_GCP=mainline
+VERSION_GDCM=mainline-gdcm3
 VERSION_MYSQL=mainline
 VERSION_POSTGRESQL=mainline
 VERSION_TRANSFERS=mainline
@@ -44,6 +45,8 @@ wget ${URL}/whole-slide-imaging/${VERSION_WSI}/libOrthancWSI.so
 wget ${URL}/plugin-authorization/${VERSION_AUTHORIZATION}/libOrthancAuthorization.so
 
 wget ${URL}/plugin-google-cloud/${VERSION_GCP}/libOrthancGoogleCloudPlatform.so
+
+wget ${URL}/plugin-gdcm/${VERSION_GDCM}/libOrthancGdcm.so
 
 chmod +x ./OrthancWSIDicomToTiff
 chmod +x ./OrthancWSIDicomizer
