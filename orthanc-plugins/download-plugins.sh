@@ -87,3 +87,4 @@ mv ./libOrthancWSI.so                  /usr/local/share/orthanc/plugins/
 mv ./libOrthancWebViewer.so            /usr/local/share/orthanc/plugins/
 mv ./libOrthancAuthorization.so        /usr/local/share/orthanc/plugins/
 mv ./libOrthancGoogleCloudPlatform.so  /usr/local/share/orthanc/plugins/
+mv ./libOrthancGdcm.so                 /usr/local/share/orthanc/plugins/
