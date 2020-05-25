@@ -46,7 +46,7 @@ wget ${URL}/plugin-authorization/${VERSION_AUTHORIZATION}/libOrthancAuthorizatio
 
 wget ${URL}/plugin-google-cloud/${VERSION_GCP}/libOrthancGoogleCloudPlatform.so
 
-wget ${URL}/plugin-gdcm/${VERSION_GCP}/libOrthancGdcm.so
+wget ${URL}/plugin-gdcm/${VERSION_GDCM}/libOrthancGdcm.so
 
 chmod +x ./OrthancWSIDicomToTiff
 chmod +x ./OrthancWSIDicomizer
