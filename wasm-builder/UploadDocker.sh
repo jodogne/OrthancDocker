@@ -4,7 +4,7 @@ set -ex
 
 DIR=`dirname $(readlink -f $0)`
 
-VERSION=`grep bash "${DIR}/Dockerfile" | cut -d '"' -f 2`
+VERSION=`grep RUN "${DIR}/Dockerfile" | grep download-emscripten.sh | cut -d '"' -f 2`
 
 if [ -z "${VERSION}" ]; then
     echo "Cannot determine the emscripten version"
