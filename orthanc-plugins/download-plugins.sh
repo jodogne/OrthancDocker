@@ -14,6 +14,7 @@ VERSION_POSTGRESQL=3.2
 VERSION_TRANSFERS=1.0
 VERSION_WEB_VIEWER=2.6
 VERSION_WSI=0.7
+VERSION_STONE=mainline
 
 # Download binaries compiled with Linux Standard Base
 
@@ -47,6 +48,8 @@ wget ${URL}/plugin-authorization/${VERSION_AUTHORIZATION}/libOrthancAuthorizatio
 wget ${URL}/plugin-google-cloud/${VERSION_GCP}/libOrthancGoogleCloudPlatform.so
 
 wget ${URL}/plugin-gdcm/${VERSION_GDCM}/libOrthancGdcm.so
+
+wget ${URL}/stone-webviewer/${VERSION_STONE}/libStoneWebViewer.so
 
 chmod +x ./OrthancWSIDicomToTiff
 chmod +x ./OrthancWSIDicomizer
@@ -88,3 +91,4 @@ mv ./libOrthancWebViewer.so            /usr/local/share/orthanc/plugins/
 mv ./libOrthancAuthorization.so        /usr/local/share/orthanc/plugins/
 mv ./libOrthancGoogleCloudPlatform.so  /usr/local/share/orthanc/plugins/
 mv ./libOrthancGdcm.so                 /usr/local/share/orthanc/plugins/
+mv ./libStoneWebViewer.so              /usr/local/share/orthanc/plugins/
