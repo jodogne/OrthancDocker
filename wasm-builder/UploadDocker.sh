@@ -16,9 +16,17 @@ NAME=wasm-builder:${VERSION}
 # Make sure that login to DockerHub is possible
 docker login --username=jodogne
 
+
 # Create the image
+
+# NB: "--network=host" is here to avoid "Temporary failure resolving"
+# errors while running apt:
+# https://medium.com/@faithfulanere/solved-docker-build-could-not-resolve-archive-ubuntu-com-apt-get-fails-to-install-anything-9ea4dfdcdcf2
+
 echo "Building image ${NAME}"
-( cd "${DIR}" && docker build --rm --no-cache -t ${NAME} . )
+( cd "${DIR}" && docker build --network=host --rm --no-cache -t ${NAME} . )
+
+
 
 # Upload to DockerHub
 ID=`docker images --filter=reference=${NAME} --format '{{.ID}}'`
