@@ -32,7 +32,7 @@ mkdir -p /usr/share/orthanc/plugins
 
 # Clone the Orthanc repository and switch to the requested branch
 cd /root/
-hg clone https://bitbucket.org/sjodogne/orthanc/ orthanc
+hg clone https://hg.orthanc-server.com/orthanc/ orthanc
 cd orthanc
 echo "Switching Orthanc to branch: $1"
 hg up -c "$1"
@@ -49,7 +49,8 @@ cmake \
     -DUSE_SYSTEM_CIVETWEB=OFF \
     -DUSE_SYSTEM_MONGOOSE=OFF \
     -DUSE_SYSTEM_OPENSSL=OFF \
-    ..
+    -DUNIT_TESTS_WITH_HTTP_CONNEXIONS=OFF \
+    ../OrthancServer
 make -j$COUNT_CORES
 
 # To run the unit tests, we need to install the "en_US" locale
