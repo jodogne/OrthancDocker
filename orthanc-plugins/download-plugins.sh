@@ -13,6 +13,7 @@ VERSION_POSTGRESQL=3.2
 VERSION_TRANSFERS=1.0
 VERSION_WEB_VIEWER=2.6
 VERSION_WSI=0.7
+VERSION_STONE=mainline
 
 # Download binaries compiled with Linux Standard Base
 
@@ -44,6 +45,8 @@ wget ${URL}/whole-slide-imaging/${VERSION_WSI}/libOrthancWSI.so
 wget ${URL}/plugin-authorization/${VERSION_AUTHORIZATION}/libOrthancAuthorization.so
 
 wget ${URL}/plugin-gdcm/${VERSION_GDCM}/libOrthancGdcm.so
+
+wget ${URL}/stone-webviewer/${VERSION_STONE}/libStoneWebViewer.so
 
 chmod +x ./OrthancWSIDicomToTiff
 chmod +x ./OrthancWSIDicomizer
@@ -84,3 +87,4 @@ mv ./libOrthancWSI.so                  /usr/local/share/orthanc/plugins/
 mv ./libOrthancWebViewer.so            /usr/local/share/orthanc/plugins/
 mv ./libOrthancAuthorization.so        /usr/local/share/orthanc/plugins/
 mv ./libOrthancGdcm.so                 /usr/local/share/orthanc/plugins/
+mv ./libStoneWebViewer.so              /usr/local/share/orthanc/plugins/
