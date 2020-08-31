@@ -51,7 +51,7 @@ wget ${URL}/plugin-gdcm/${VERSION_GDCM}/libOrthancGdcm.so
 wget ${URL}/stone-webviewer/${VERSION_STONE_WEB_VIEWER}/libStoneWebViewer.so
 wget ${URL}/stone-rt-sample/${VERSION_STONE_RT_SAMPLE}/libRtViewerPlugin.so
 
-wget ${URL}/plugin-osimis-cloud/${VERSION_OSIMIS_COULD}/libOrthancOsimisCloud.so
+wget ${URL}/plugin-osimis-cloud/${VERSION_OSIMIS_CLOUD}/libOrthancOsimisCloud.so
 
 chmod +x ./OrthancWSIDicomToTiff
 chmod +x ./OrthancWSIDicomizer
