@@ -18,6 +18,9 @@ sed 's/\("Plugins" : \[\)/\1 \n    "\/usr\/share\/orthanc\/plugins", "\/usr\/loc
 sed 's/"RemoteAccessAllowed" : false/"RemoteAccessAllowed" : true/' -i $CONFIG
 sed 's/"AuthenticationEnabled" : false/"AuthenticationEnabled" : true/' -i $CONFIG
 
+# New since jodogne/orthanc:1.7.3
+sed 's/\("HttpsCACertificates" : \)".*"/\1"/etc/ssl/certs/ca-certificates.crt"/' -i $CONFIG
+
 
 # Starting with Orthanc 1.5.8, we let Orthanc create its default
 # user. This results in showing a warning about "Insecure setup", both
