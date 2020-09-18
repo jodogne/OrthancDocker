@@ -1,4 +1,4 @@
-FROM jodogne/orthanc-plugins
+FROM jodogne/orthanc-plugins:1.7.4
 
 MAINTAINER Sebastien Jodogne <s.jodogne@gmail.com>
 LABEL Description="Orthanc, free DICOM server, with plugins and Python" Vendor="The Orthanc project"
