@@ -5,16 +5,16 @@ cd
 
 URL=http://lsb.orthanc-server.com/
 
-VERSION_AUTHORIZATION=mainline
-VERSION_DICOM_WEB=mainline
-VERSION_GDCM=mainline-gdcm3
-VERSION_MYSQL=mainline
-VERSION_POSTGRESQL=mainline
-VERSION_TRANSFERS=mainline
-VERSION_WEB_VIEWER=mainline
-VERSION_WSI=mainline
-VERSION_STONE_WEB_VIEWER=mainline
-VERSION_STONE_RT_SAMPLE=mainline
+VERSION_AUTHORIZATION=0.2.4
+VERSION_DICOM_WEB=1.6
+VERSION_GDCM=1.4
+VERSION_MYSQL=4.1
+VERSION_POSTGRESQL=4.0
+VERSION_TRANSFERS=1.0
+VERSION_WEB_VIEWER=2.7
+VERSION_WSI=1.0
+VERSION_STONE_WEB_VIEWER=2.1
+# VERSION_STONE_RT_SAMPLE=mainline
 
 # Download binaries compiled with Linux Standard Base
 
@@ -48,7 +48,7 @@ wget ${URL}/plugin-authorization/${VERSION_AUTHORIZATION}/libOrthancAuthorizatio
 wget ${URL}/plugin-gdcm/${VERSION_GDCM}/libOrthancGdcm.so
 
 wget ${URL}/stone-webviewer/${VERSION_STONE_WEB_VIEWER}/libStoneWebViewer.so
-wget ${URL}/stone-rt-sample/${VERSION_STONE_RT_SAMPLE}/libRtViewerPlugin.so
+# wget ${URL}/stone-rt-sample/${VERSION_STONE_RT_SAMPLE}/libRtViewerPlugin.so
 
 chmod +x ./OrthancWSIDicomToTiff
 chmod +x ./OrthancWSIDicomizer
@@ -90,4 +90,4 @@ mv ./libOrthancWebViewer.so            /usr/local/share/orthanc/plugins/
 mv ./libOrthancAuthorization.so        /usr/local/share/orthanc/plugins/
 mv ./libOrthancGdcm.so                 /usr/local/share/orthanc/plugins/
 mv ./libStoneWebViewer.so              /usr/local/share/orthanc/plugins/
-mv ./libRtViewerPlugin.so              /usr/local/share/orthanc/plugins/
+# mv ./libRtViewerPlugin.so              /usr/local/share/orthanc/plugins/
