@@ -9,6 +9,7 @@ VERSION_AUTHORIZATION=0.2.4
 VERSION_DICOM_WEB=1.6
 VERSION_GDCM=1.4
 VERSION_MYSQL=4.3
+VERSION_ODBC=mainline
 VERSION_POSTGRESQL=4.0
 VERSION_TRANSFERS=1.0
 VERSION_WEB_VIEWER=2.7
@@ -33,6 +34,10 @@ wget ${URL}/plugin-mysql/${VERSION_MYSQL}/UnitTests -O - > UnitTests-MySQL
 wget ${URL}/plugin-mysql/${VERSION_MYSQL}/libOrthancMySQLIndex.so
 wget ${URL}/plugin-mysql/${VERSION_MYSQL}/libOrthancMySQLStorage.so
 
+wget ${URL}/plugin-odbc/${VERSION_ODBC}/UnitTests -O - > UnitTests-Odbc
+wget ${URL}/plugin-odbc/${VERSION_ODBC}/libOrthancOdbcIndex.so
+wget ${URL}/plugin-odbc/${VERSION_ODBC}/libOrthancOdbcStorage.so
+
 wget ${URL}/plugin-transfers/${VERSION_TRANSFERS}/UnitTests -O - > UnitTests-Transfers
 wget ${URL}/plugin-transfers/${VERSION_TRANSFERS}/libOrthancTransfers.so
 
@@ -55,6 +60,7 @@ chmod +x ./OrthancWSIDicomizer
 #chmod +x ./UnitTests-DicomWeb
 chmod +x ./UnitTests-PostgreSQL
 chmod +x ./UnitTests-MySQL
+chmod +x ./UnitTests-Odbc
 chmod +x ./UnitTests-Transfers
 #chmod +x ./UnitTests-WebViewer
 
@@ -64,6 +70,7 @@ cd ~/UnitTests
 #../UnitTests-DicomWeb
 # ../UnitTests-PostgreSQL
 # ../UnitTests-MySQL
+# ../UnitTests-Odbc
 ../UnitTests-Transfers
 #../UnitTests-WebViewer
 
@@ -73,6 +80,7 @@ rm -rf ./UnitTests
 rm -rf ./UnitTests-DicomWeb
 rm -rf ./UnitTests-PostgreSQL
 rm -rf ./UnitTests-MySQL
+rm -rf ./UnitTests-Odbc
 rm -rf ./UnitTests-Transfers
 rm -rf ./UnitTests-WebViewer
 
@@ -84,6 +92,8 @@ mv ./libOrthancPostgreSQLIndex.so      /usr/local/share/orthanc/plugins/
 mv ./libOrthancPostgreSQLStorage.so    /usr/local/share/orthanc/plugins/
 mv ./libOrthancMySQLIndex.so           /usr/local/share/orthanc/plugins/
 mv ./libOrthancMySQLStorage.so         /usr/local/share/orthanc/plugins/
+mv ./libOrthancOdbcIndex.so            /usr/local/share/orthanc/plugins/
+mv ./libOrthancOdbcStorage.so          /usr/local/share/orthanc/plugins/
 mv ./libOrthancTransfers.so            /usr/local/share/orthanc/plugins/
 mv ./libOrthancWSI.so                  /usr/local/share/orthanc/plugins/
 mv ./libOrthancWebViewer.so            /usr/local/share/orthanc/plugins/
