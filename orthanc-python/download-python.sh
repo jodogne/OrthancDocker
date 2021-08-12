@@ -4,7 +4,7 @@ set -e
 cd
 
 URL=https://lsb.orthanc-server.com/
-VERSION=3.2
+VERSION=3.3
 
 wget ${URL}/plugin-python/debian-stable-python-3.7/${VERSION}/libOrthancPython.so
 
