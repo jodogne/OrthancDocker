@@ -1,4 +1,4 @@
-FROM debian:stable-slim
+FROM debian:buster-slim
 
 MAINTAINER Sebastien Jodogne <s.jodogne@gmail.com>
 LABEL Description="Orthanc, free DICOM server" Vendor="The Orthanc project"
