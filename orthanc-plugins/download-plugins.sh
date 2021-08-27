@@ -11,6 +11,7 @@ VERSION_GDCM=mainline-gdcm3
 VERSION_MYSQL=mainline
 VERSION_ODBC=mainline
 VERSION_POSTGRESQL=mainline
+VERSION_TCIA=mainline
 VERSION_TRANSFERS=mainline
 VERSION_WEB_VIEWER=mainline
 VERSION_WSI=mainline
@@ -51,6 +52,8 @@ wget ${URL}/whole-slide-imaging/${VERSION_WSI}/libOrthancWSI.so
 wget ${URL}/plugin-authorization/${VERSION_AUTHORIZATION}/libOrthancAuthorization.so
 
 wget ${URL}/plugin-gdcm/${VERSION_GDCM}/libOrthancGdcm.so
+
+wget ${URL}/plugin-tcia/${VERSION_TCIA}/libOrthancTcia.so
 
 wget ${URL}/stone-webviewer/${VERSION_STONE_WEB_VIEWER}/libStoneWebViewer.so
 wget ${URL}/stone-rt-sample/${VERSION_STONE_RT_SAMPLE}/libRtViewerPlugin.so
@@ -99,5 +102,6 @@ mv ./libOrthancWSI.so                  /usr/local/share/orthanc/plugins/
 mv ./libOrthancWebViewer.so            /usr/local/share/orthanc/plugins/
 mv ./libOrthancAuthorization.so        /usr/local/share/orthanc/plugins/
 mv ./libOrthancGdcm.so                 /usr/local/share/orthanc/plugins/
+mv ./libOrthancTcia.so                 /usr/local/share/orthanc/plugins/
 mv ./libStoneWebViewer.so              /usr/local/share/orthanc/plugins/
 mv ./libRtViewerPlugin.so              /usr/local/share/orthanc/plugins/
