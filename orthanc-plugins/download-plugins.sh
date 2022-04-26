@@ -10,6 +10,7 @@ VERSION_DICOM_WEB=1.7
 VERSION_GDCM=1.5
 VERSION_INDEXER=1.0
 VERSION_MYSQL=4.3
+VERSION_NEURO=1.0
 VERSION_ODBC=1.0
 VERSION_POSTGRESQL=4.0
 VERSION_TCIA=1.1
@@ -59,6 +60,9 @@ wget ${URL}/plugin-tcia/${VERSION_TCIA}/libOrthancTcia.so
 wget ${URL}/plugin-indexer/${VERSION_INDEXER}/libOrthancIndexer.so
 wget ${URL}/plugin-indexer/${VERSION_INDEXER}/UnitTests -O - > UnitTests-Indexer
 
+wget ${URL}/plugin-neuro/${VERSION_NEURO}/libOrthancNeuro.so
+wget ${URL}/plugin-neuro/${VERSION_NEURO}/UnitTests -O - > UnitTests-Neuro
+
 wget ${URL}/stone-webviewer/${VERSION_STONE_WEB_VIEWER}/libStoneWebViewer.so
 wget ${URL}/stone-rt-sample/${VERSION_STONE_RT_SAMPLE}/libRtViewerPlugin.so
 
@@ -71,6 +75,7 @@ chmod +x ./UnitTests-Odbc
 chmod +x ./UnitTests-Transfers
 chmod +x ./UnitTests-WebViewer
 chmod +x ./UnitTests-Indexer
+chmod +x ./UnitTests-Neuro
 
 # Run the unit tests
 mkdir ~/UnitTests
@@ -82,6 +87,7 @@ cd ~/UnitTests
 ../UnitTests-Transfers
 ../UnitTests-WebViewer
 ../UnitTests-Indexer
+../UnitTests-Neuro
 
 # Recover space used by the unit tests
 cd
@@ -93,6 +99,7 @@ rm -rf ./UnitTests-Odbc
 rm -rf ./UnitTests-Transfers
 rm -rf ./UnitTests-WebViewer
 rm -rf ./UnitTests-Indexer
+rm -rf ./UnitTests-Neuro
 
 # Move the binaries to their final location
 mv ./OrthancWSIDicomToTiff             /usr/local/bin/
@@ -111,5 +118,6 @@ mv ./libOrthancAuthorization.so        /usr/local/share/orthanc/plugins/
 mv ./libOrthancGdcm.so                 /usr/local/share/orthanc/plugins/
 mv ./libOrthancTcia.so                 /usr/local/share/orthanc/plugins/
 mv ./libOrthancIndexer.so              /usr/local/share/orthanc/plugins/
+mv ./libOrthancNeuro.so                /usr/local/share/orthanc/plugins/
 mv ./libStoneWebViewer.so              /usr/local/share/orthanc/plugins/
 mv ./libRtViewerPlugin.so              /usr/local/share/orthanc/plugins/
