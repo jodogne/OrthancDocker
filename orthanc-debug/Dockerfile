@@ -7,7 +7,7 @@ RUN apt-get -y clean && apt-get -y update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install wget nano build-essential unzip cmake mercurial uuid-dev libcurl4-openssl-dev liblua5.1-0-dev libgtest-dev libpng-dev libsqlite3-dev libssl-dev libjpeg-dev zlib1g-dev libdcmtk2-dev libboost-all-dev libwrap0-dev libcharls-dev libjsoncpp-dev libpugixml-dev locales gdb valgrind cgdb emacs-nox iputils-ping net-tools tzdata && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ADD ./build-orthanc.sh /root/build-orthanc.sh
-RUN bash /root/build-orthanc.sh "default"
+RUN bash /root/build-orthanc.sh "Orthanc-1.11.0"
 
 VOLUME [ "/var/lib/orthanc/db" ]
 EXPOSE 4242
