@@ -15,6 +15,7 @@ VERSION_ODBC=mainline
 VERSION_POSTGRESQL=mainline
 VERSION_TCIA=mainline
 VERSION_TRANSFERS=mainline
+VERSION_VOLVIEW=mainline
 VERSION_WEB_VIEWER=mainline
 VERSION_WSI=mainline
 VERSION_STONE_WEB_VIEWER=mainline
@@ -62,6 +63,8 @@ wget ${URL}/plugin-indexer/${VERSION_INDEXER}/UnitTests -O - > UnitTests-Indexer
 
 wget ${URL}/plugin-neuro/${VERSION_NEURO}/libOrthancNeuro.so
 wget ${URL}/plugin-neuro/${VERSION_NEURO}/UnitTests -O - > UnitTests-Neuro
+
+wget ${URL}/plugin-volview/${VERSION_VOLVIEW}/libOrthancVolView.so
 
 wget ${URL}/stone-webviewer/${VERSION_STONE_WEB_VIEWER}/libStoneWebViewer.so
 wget ${URL}/stone-rt-sample/${VERSION_STONE_RT_SAMPLE}/libRtViewerPlugin.so
@@ -119,5 +122,6 @@ mv ./libOrthancGdcm.so                 /usr/local/share/orthanc/plugins/
 mv ./libOrthancTcia.so                 /usr/local/share/orthanc/plugins/
 mv ./libOrthancIndexer.so              /usr/local/share/orthanc/plugins/
 mv ./libOrthancNeuro.so                /usr/local/share/orthanc/plugins/
+mv ./libOrthancVolView.so              /usr/local/share/orthanc/plugins/
 mv ./libStoneWebViewer.so              /usr/local/share/orthanc/plugins/
 mv ./libRtViewerPlugin.so              /usr/local/share/orthanc/plugins/
