@@ -4,14 +4,17 @@ set -e
 cd
 
 URL=http://lsb.orthanc-server.com/
-VERSION_ORTHANC=mainline
+VERSION_ORTHANC=1.12.0
 
 # Download binaries compiled with Linux Standard Base
 wget ${URL}/orthanc/${VERSION_ORTHANC}/Orthanc
 wget ${URL}/orthanc/${VERSION_ORTHANC}/OrthancRecoverCompressedFile
 wget ${URL}/orthanc/${VERSION_ORTHANC}/UnitTests -O - > UnitTests-Orthanc
 wget ${URL}/orthanc/${VERSION_ORTHANC}/libConnectivityChecks.so
+wget ${URL}/orthanc/${VERSION_ORTHANC}/libDelayedDeletion.so
+wget ${URL}/orthanc/${VERSION_ORTHANC}/libHousekeeper.so
 wget ${URL}/orthanc/${VERSION_ORTHANC}/libModalityWorklists.so
+wget ${URL}/orthanc/${VERSION_ORTHANC}/libMultitenantDicom.so
 wget ${URL}/orthanc/${VERSION_ORTHANC}/libServeFolders.so
 
 chmod +x ./Orthanc
@@ -36,5 +39,8 @@ mkdir -p /usr/local/share/orthanc/plugins/
 mv ./Orthanc                        /usr/local/sbin/
 mv ./OrthancRecoverCompressedFile   /usr/local/bin/
 mv ./libConnectivityChecks.so       /usr/local/share/orthanc/plugins/
+mv ./libDelayedDeletion.so          /usr/local/share/orthanc/plugins/
+mv ./libHousekeeper.so              /usr/local/share/orthanc/plugins/
 mv ./libModalityWorklists.so        /usr/local/share/orthanc/plugins/
+mv ./libMultitenantDicom.so         /usr/local/share/orthanc/plugins/
 mv ./libServeFolders.so             /usr/local/share/orthanc/plugins/
