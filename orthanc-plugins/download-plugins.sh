@@ -12,13 +12,15 @@ VERSION_INDEXER=mainline
 VERSION_MYSQL=mainline
 VERSION_NEURO=mainline
 VERSION_ODBC=mainline
+VERSION_OE2=mainline
 VERSION_POSTGRESQL=mainline
+VERSION_STONE_WEB_VIEWER=mainline
 VERSION_TCIA=mainline
 VERSION_TRANSFERS=mainline
 VERSION_VOLVIEW=mainline
 VERSION_WEB_VIEWER=mainline
 VERSION_WSI=mainline
-VERSION_STONE_WEB_VIEWER=mainline
+
 VERSION_STONE_RT_SAMPLE=mainline
 
 # Download binaries compiled with Linux Standard Base
@@ -66,6 +68,8 @@ wget ${URL}/plugin-neuro/${VERSION_NEURO}/UnitTests -O - > UnitTests-Neuro
 
 wget ${URL}/plugin-volview/${VERSION_VOLVIEW}/libOrthancVolView.so
 
+wget ${URL}/plugin-orthanc-explorer-2/${VERSION_OE2}/libOrthancExplorer2.so
+
 wget ${URL}/stone-webviewer/${VERSION_STONE_WEB_VIEWER}/libStoneWebViewer.so
 wget ${URL}/stone-rt-sample/${VERSION_STONE_RT_SAMPLE}/libRtViewerPlugin.so
 
@@ -107,21 +111,22 @@ rm -rf ./UnitTests-Neuro
 # Move the binaries to their final location
 mv ./OrthancWSIDicomToTiff             /usr/local/bin/
 mv ./OrthancWSIDicomizer               /usr/local/bin/
+mv ./libOrthancAuthorization.so        /usr/local/share/orthanc/plugins/
 mv ./libOrthancDicomWeb.so             /usr/local/share/orthanc/plugins/
-mv ./libOrthancPostgreSQLIndex.so      /usr/local/share/orthanc/plugins/
-mv ./libOrthancPostgreSQLStorage.so    /usr/local/share/orthanc/plugins/
+mv ./libOrthancExplorer2.so            /usr/local/share/orthanc/plugins/
+mv ./libOrthancGdcm.so                 /usr/local/share/orthanc/plugins/
+mv ./libOrthancIndexer.so              /usr/local/share/orthanc/plugins/
 mv ./libOrthancMySQLIndex.so           /usr/local/share/orthanc/plugins/
 mv ./libOrthancMySQLStorage.so         /usr/local/share/orthanc/plugins/
+mv ./libOrthancNeuro.so                /usr/local/share/orthanc/plugins/
 mv ./libOrthancOdbcIndex.so            /usr/local/share/orthanc/plugins/
 mv ./libOrthancOdbcStorage.so          /usr/local/share/orthanc/plugins/
+mv ./libOrthancPostgreSQLIndex.so      /usr/local/share/orthanc/plugins/
+mv ./libOrthancPostgreSQLStorage.so    /usr/local/share/orthanc/plugins/
+mv ./libOrthancTcia.so                 /usr/local/share/orthanc/plugins/
 mv ./libOrthancTransfers.so            /usr/local/share/orthanc/plugins/
+mv ./libOrthancVolView.so              /usr/local/share/orthanc/plugins/
 mv ./libOrthancWSI.so                  /usr/local/share/orthanc/plugins/
 mv ./libOrthancWebViewer.so            /usr/local/share/orthanc/plugins/
-mv ./libOrthancAuthorization.so        /usr/local/share/orthanc/plugins/
-mv ./libOrthancGdcm.so                 /usr/local/share/orthanc/plugins/
-mv ./libOrthancTcia.so                 /usr/local/share/orthanc/plugins/
-mv ./libOrthancIndexer.so              /usr/local/share/orthanc/plugins/
-mv ./libOrthancNeuro.so                /usr/local/share/orthanc/plugins/
-mv ./libOrthancVolView.so              /usr/local/share/orthanc/plugins/
-mv ./libStoneWebViewer.so              /usr/local/share/orthanc/plugins/
 mv ./libRtViewerPlugin.so              /usr/local/share/orthanc/plugins/
+mv ./libStoneWebViewer.so              /usr/local/share/orthanc/plugins/
