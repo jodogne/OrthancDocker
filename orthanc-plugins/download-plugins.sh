@@ -71,7 +71,7 @@ wget ${URL}/plugin-volview/${VERSION_VOLVIEW}/libOrthancVolView.so
 
 wget ${URL}/plugin-orthanc-explorer-2/${VERSION_OE2}/libOrthancExplorer2.so
 
-wget ${URL}/plugin-ohif/${VERSION_VOLVIEW}/libOrthancOHIF.so
+wget ${URL}/plugin-ohif/${VERSION_OHIF}/libOrthancOHIF.so
 
 wget ${URL}/stone-webviewer/${VERSION_STONE_WEB_VIEWER}/libStoneWebViewer.so
 wget ${URL}/stone-rt-sample/${VERSION_STONE_RT_SAMPLE}/libRtViewerPlugin.so
