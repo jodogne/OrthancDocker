@@ -13,6 +13,7 @@ VERSION_MYSQL=5.0
 VERSION_NEURO=1.0
 VERSION_ODBC=1.1
 VERSION_OE2=0.8.2
+VERSION_OHIF=1.0
 VERSION_POSTGRESQL=5.0
 VERSION_STONE_WEB_VIEWER=2.5
 VERSION_TCIA=1.1
@@ -70,6 +71,8 @@ wget ${URL}/plugin-volview/${VERSION_VOLVIEW}/libOrthancVolView.so
 
 wget ${URL}/plugin-orthanc-explorer-2/${VERSION_OE2}/libOrthancExplorer2.so
 
+wget ${URL}/plugin-ohif/${VERSION_VOLVIEW}/libOrthancOHIF.so
+
 wget ${URL}/stone-webviewer/${VERSION_STONE_WEB_VIEWER}/libStoneWebViewer.so
 wget ${URL}/stone-rt-sample/${VERSION_STONE_RT_SAMPLE}/libRtViewerPlugin.so
 
@@ -126,6 +129,7 @@ mv ./libOrthancPostgreSQLStorage.so    /usr/local/share/orthanc/plugins/
 mv ./libOrthancTcia.so                 /usr/local/share/orthanc/plugins/
 mv ./libOrthancTransfers.so            /usr/local/share/orthanc/plugins/
 mv ./libOrthancVolView.so              /usr/local/share/orthanc/plugins/
+mv ./libOrthancOHIF.so                 /usr/local/share/orthanc/plugins/
 mv ./libOrthancWSI.so                  /usr/local/share/orthanc/plugins/
 mv ./libOrthancWebViewer.so            /usr/local/share/orthanc/plugins/
 mv ./libRtViewerPlugin.so              /usr/local/share/orthanc/plugins/
