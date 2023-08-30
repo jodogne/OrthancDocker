@@ -4,7 +4,7 @@ set -e
 cd
 
 URL=https://lsb.orthanc-server.com/
-VERSION=4.0
+VERSION=4.1
 
 wget ${URL}/plugin-python/debian-buster-python-3.7/${VERSION}/libOrthancPython.so
 
