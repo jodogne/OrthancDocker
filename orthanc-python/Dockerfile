@@ -1,15 +1,17 @@
-FROM jodogne/orthanc-plugins
+FROM seandoyle/orthanc-big
 
 MAINTAINER Sebastien Jodogne <s.jodogne@gmail.com>
 LABEL Description="Orthanc, free DICOM server, with plugins and Python" Vendor="The Orthanc project"
 
 RUN apt-get -y clean && apt-get -y update
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python3.7 libpython3.7 && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+# 3.10.12 already installed.
+#RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python3.7 libpython3.7 && \
+#    apt-get clean && rm -rf /var/lib/apt/lists/*
 
+ADD ./CMakeLists.txt  ./CMakeLists.txt  
 ADD ./download-python.sh ./download-python.sh
 RUN bash ./download-python.sh
-
+RUN ls -l /usr/local/share/orthanc/plugins/
 RUN rm ./download-python.sh
 
 VOLUME [ "/var/lib/orthanc/db" ]

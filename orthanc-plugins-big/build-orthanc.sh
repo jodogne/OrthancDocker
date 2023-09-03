@@ -32,10 +32,14 @@ mkdir -p /usr/share/orthanc/plugins
 
 # Clone the Orthanc repository and switch to the requested branch
 cd /root/
-hg clone https://bitbucket.org/sjodogne/orthanc/ orthanc
-cd orthanc
-echo "Switching Orthanc to branch: $1"
-hg up -c "$1"
+wget --no-check-certificate -O  Orthanc-1.12.1.tar.gz  https://www.orthanc-server.com/downloads/get.php?path=/orthanc/Orthanc-1.12.1.tar.gz
+tar -xvf Orthanc-1.12.1.tar.gz
+ls -l .
+# hg clone https://bitbucket.org/sjodogne/orthanc/ orthanc
+cd  Orthanc-1.12.1/OrthancServer
+pwd
+echo "Downloaded source"
+#hg up -c "$1"
 
 # Build the Orthanc core
 mkdir Build
@@ -62,7 +66,7 @@ make install
 
 # Remove the build directory to recover space
 cd /root/
-rm -rf /root/orthanc
+rm -rf /root/Orthanc-1.12.1
 
 # Auto-generate, then patch the configuration file
 CONFIG=/etc/orthanc/orthanc.json

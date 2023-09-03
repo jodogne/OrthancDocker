@@ -27,9 +27,12 @@ echo "Will use $COUNT_CORES parallel jobs to build Orthanc"
 
 # Clone the repository and switch to the requested branch
 cd /root/
-hg clone https://bitbucket.org/sjodogne/orthanc-webviewer/
-cd orthanc-webviewer
-hg up -c "$1"
+wget --no-check-certificate -O ./OrthancWebViewer-2.8.tar.gz  https://www.orthanc-server.com/downloads/get.php?path=/plugin-webviewer/OrthancWebViewer-2.8.tar.gz
+tar -xvf ./OrthancWebViewer-2.8.tar.gz
+cd OrthancWebViewer-2.8
+# hg clone https://bitbucket.org/sjodogne/orthanc-webviewer/
+#cd orthanc-webviewer
+#hg up -c "$1"
 
 # Build the plugin
 mkdir Build

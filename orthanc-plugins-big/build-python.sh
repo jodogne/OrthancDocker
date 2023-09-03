@@ -27,25 +27,32 @@ echo "Will use $COUNT_CORES parallel jobs to build Orthanc"
 
 # Clone the repository and switch to the requested branch
 cd /root/
-wget --no-check-certificate -O  OrthancPostgresql-5.1.tar.gz https://www.orthanc-server.com/downloads/get.php?path=/plugin-postgresql/OrthancPostgreSQL-5.1.tar.gz
-tar -xvf OrthancPostgresql-5.1.tar.gz
-cd OrthancPostgresql-5.1/PostgreSQL
-#hg clone https://bitbucket.org/sjodogne/orthanc-postgresql/
-#cd orthanc-postgresql
-#hg up -c "$1"
+hg clone https://bitbucket.org/sjodogne/orthanc-wsi/
+cd orthanc-wsi
+hg up -c "$1"
 
-# Build the plugin
+# Build the viewer plugin
+cd /root/orthanc-wsi/ViewerPlugin
 mkdir Build
 cd Build
 cmake -DALLOW_DOWNLOADS:BOOL=ON \
     -DCMAKE_BUILD_TYPE:STRING=Release \
-    -DUSE_GOOGLE_TEST_DEBIAN_PACKAGE:BOOL=ON \
     -DUSE_SYSTEM_JSONCPP:BOOL=OFF \
     ..
 make -j$COUNT_CORES
-cp -L libOrthancPostgreSQLIndex.so /usr/share/orthanc/plugins/
-cp -L libOrthancPostgreSQLStorage.so /usr/share/orthanc/plugins/
+cp -L libOrthancWSI.so /usr/share/orthanc/plugins/
+
+# Build the DICOM-ization applications
+cd /root/orthanc-wsi/Applications
+mkdir Build
+cd Build
+cmake -DALLOW_DOWNLOADS:BOOL=ON \
+    -DCMAKE_BUILD_TYPE:STRING=Release \
+    -DUSE_SYSTEM_JSONCPP:BOOL=OFF \
+    ..
+make -j$COUNT_CORES
+make install
 
 # Remove the build directory to recover space
 cd /root/
-rm -rf /root/OrthancPostgresql-5.1.tar.gz
+rm -rf /root/orthanc-wsi

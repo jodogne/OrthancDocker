@@ -27,9 +27,12 @@ echo "Will use $COUNT_CORES parallel jobs to build Orthanc"
 
 # Clone the repository and switch to the requested branch
 cd /root/
-hg clone https://bitbucket.org/sjodogne/orthanc-dicomweb/
-cd orthanc-dicomweb
-hg up -c "$1"
+wget --no-check-certificate -O OrthancDicomWeb-1.15.tar.gz https://www.orthanc-server.com/downloads/get.php?path=/plugin-dicom-web/OrthancDicomWeb-1.15.tar.gz
+tar -xvf OrthancDicomWeb-1.15.tar.gz
+cd OrthancDicomWeb-1.15
+#hg clone https://bitbucket.org/sjodogne/orthanc-dicomweb/
+#cd orthanc-dicomweb
+#hg up -c "$1"
 
 # Build the plugin
 mkdir Build
