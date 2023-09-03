@@ -1,10 +1,7 @@
 #!/bin/bash
 
 set -e
-ls -l
 cd
-pwd
-ls -l
 URL=https://lsb.orthanc-server.com/
 VERSION=mainline
 
@@ -21,10 +18,8 @@ cmake -DALLOW_DOWNLOADS:BOOL=ON \
     ..
 make -j$COUNT_CORES
 
-#wget ${URL}/plugin-python/debian-buster-python-3.7/${VERSION}/libOrthancPython.so
 chmod +x libOrthancPython.so
 ls -l *
 cp -L libOrthancPython.so /usr/share/orthanc/plugins/
 
-#cp -L libOrthancPython.so  /usr/local/share/orthanc/plugins/
 ls -l /usr/local/share/orthanc/plugins/
