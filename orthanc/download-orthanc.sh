@@ -3,7 +3,7 @@
 set -e
 cd
 
-URL=http://lsb.orthanc-server.com/
+URL=https://orthanc.uclouvain.be/downloads/linux-standard-base
 VERSION_ORTHANC=1.12.1
 
 # Download binaries compiled with Linux Standard Base

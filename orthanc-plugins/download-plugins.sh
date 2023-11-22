@@ -3,7 +3,7 @@
 set -e
 cd
 
-URL=http://lsb.orthanc-server.com/
+URL=https://orthanc.uclouvain.be/downloads/linux-standard-base
 
 VERSION_AUTHORIZATION=0.5.3
 VERSION_DICOM_WEB=1.13
@@ -30,50 +30,50 @@ VERSION_STONE_RT_SAMPLE=mainline
 # anymore, as they are now built using the Holy Build Box because of
 # incompatibility between GDCM 3.0 and LSB compilers
 
-wget ${URL}/plugin-dicom-web/${VERSION_DICOM_WEB}/UnitTests -O - > UnitTests-DicomWeb
-wget ${URL}/plugin-dicom-web/${VERSION_DICOM_WEB}/libOrthancDicomWeb.so
+wget ${URL}/orthanc-dicomweb/${VERSION_DICOM_WEB}/UnitTests -O - > UnitTests-DicomWeb
+wget ${URL}/orthanc-dicomweb/${VERSION_DICOM_WEB}/libOrthancDicomWeb.so
 
-wget ${URL}/plugin-postgresql/${VERSION_POSTGRESQL}/UnitTests -O - > UnitTests-PostgreSQL
-wget ${URL}/plugin-postgresql/${VERSION_POSTGRESQL}/libOrthancPostgreSQLIndex.so
-wget ${URL}/plugin-postgresql/${VERSION_POSTGRESQL}/libOrthancPostgreSQLStorage.so
+wget ${URL}/orthanc-postgresql/${VERSION_POSTGRESQL}/UnitTests -O - > UnitTests-PostgreSQL
+wget ${URL}/orthanc-postgresql/${VERSION_POSTGRESQL}/libOrthancPostgreSQLIndex.so
+wget ${URL}/orthanc-postgresql/${VERSION_POSTGRESQL}/libOrthancPostgreSQLStorage.so
 
-wget ${URL}/plugin-mysql/${VERSION_MYSQL}/UnitTests -O - > UnitTests-MySQL
-wget ${URL}/plugin-mysql/${VERSION_MYSQL}/libOrthancMySQLIndex.so
-wget ${URL}/plugin-mysql/${VERSION_MYSQL}/libOrthancMySQLStorage.so
+wget ${URL}/orthanc-mysql/${VERSION_MYSQL}/UnitTests -O - > UnitTests-MySQL
+wget ${URL}/orthanc-mysql/${VERSION_MYSQL}/libOrthancMySQLIndex.so
+wget ${URL}/orthanc-mysql/${VERSION_MYSQL}/libOrthancMySQLStorage.so
 
-wget ${URL}/plugin-odbc/${VERSION_ODBC}/UnitTests -O - > UnitTests-Odbc
-wget ${URL}/plugin-odbc/${VERSION_ODBC}/libOrthancOdbcIndex.so
-wget ${URL}/plugin-odbc/${VERSION_ODBC}/libOrthancOdbcStorage.so
+wget ${URL}/orthanc-odbc/${VERSION_ODBC}/UnitTests -O - > UnitTests-Odbc
+wget ${URL}/orthanc-odbc/${VERSION_ODBC}/libOrthancOdbcIndex.so
+wget ${URL}/orthanc-odbc/${VERSION_ODBC}/libOrthancOdbcStorage.so
 
-wget ${URL}/plugin-transfers/${VERSION_TRANSFERS}/UnitTests -O - > UnitTests-Transfers
-wget ${URL}/plugin-transfers/${VERSION_TRANSFERS}/libOrthancTransfers.so
+wget ${URL}/orthanc-transfers/${VERSION_TRANSFERS}/UnitTests -O - > UnitTests-Transfers
+wget ${URL}/orthanc-transfers/${VERSION_TRANSFERS}/libOrthancTransfers.so
 
-wget ${URL}/plugin-webviewer/${VERSION_WEB_VIEWER}/UnitTests -O - > UnitTests-WebViewer
-wget ${URL}/plugin-webviewer/${VERSION_WEB_VIEWER}/libOrthancWebViewer.so
+wget ${URL}/orthanc-webviewer/${VERSION_WEB_VIEWER}/UnitTests -O - > UnitTests-WebViewer
+wget ${URL}/orthanc-webviewer/${VERSION_WEB_VIEWER}/libOrthancWebViewer.so
 
-wget ${URL}/whole-slide-imaging/${VERSION_WSI}/OrthancWSIDicomToTiff
-wget ${URL}/whole-slide-imaging/${VERSION_WSI}/OrthancWSIDicomizer
-wget ${URL}/whole-slide-imaging/${VERSION_WSI}/libOrthancWSI.so
+wget ${URL}/orthanc-wsi/${VERSION_WSI}/OrthancWSIDicomToTiff
+wget ${URL}/orthanc-wsi/${VERSION_WSI}/OrthancWSIDicomizer
+wget ${URL}/orthanc-wsi/${VERSION_WSI}/libOrthancWSI.so
 
-wget ${URL}/plugin-authorization/${VERSION_AUTHORIZATION}/libOrthancAuthorization.so
+wget ${URL}/orthanc-authorization/${VERSION_AUTHORIZATION}/libOrthancAuthorization.so
 
-wget ${URL}/plugin-gdcm/${VERSION_GDCM}/libOrthancGdcm.so
+wget ${URL}/orthanc-gdcm/${VERSION_GDCM}/libOrthancGdcm.so
 
-wget ${URL}/plugin-tcia/${VERSION_TCIA}/libOrthancTcia.so
+wget ${URL}/orthanc-tcia/${VERSION_TCIA}/libOrthancTcia.so
 
-wget ${URL}/plugin-indexer/${VERSION_INDEXER}/libOrthancIndexer.so
-wget ${URL}/plugin-indexer/${VERSION_INDEXER}/UnitTests -O - > UnitTests-Indexer
+wget ${URL}/orthanc-indexer/${VERSION_INDEXER}/libOrthancIndexer.so
+wget ${URL}/orthanc-indexer/${VERSION_INDEXER}/UnitTests -O - > UnitTests-Indexer
 
-wget ${URL}/plugin-neuro/${VERSION_NEURO}/libOrthancNeuro.so
-wget ${URL}/plugin-neuro/${VERSION_NEURO}/UnitTests -O - > UnitTests-Neuro
+wget ${URL}/orthanc-neuro/${VERSION_NEURO}/libOrthancNeuro.so
+wget ${URL}/orthanc-neuro/${VERSION_NEURO}/UnitTests -O - > UnitTests-Neuro
 
-wget ${URL}/plugin-volview/${VERSION_VOLVIEW}/libOrthancVolView.so
+wget ${URL}/orthanc-volview/${VERSION_VOLVIEW}/libOrthancVolView.so
 
-wget ${URL}/plugin-orthanc-explorer-2/${VERSION_OE2}/libOrthancExplorer2.so
+wget ${URL}/orthanc-explorer-2/${VERSION_OE2}/libOrthancExplorer2.so
 
-wget ${URL}/plugin-ohif/${VERSION_OHIF}/libOrthancOHIF.so
+wget ${URL}/orthanc-ohif/${VERSION_OHIF}/libOrthancOHIF.so
 
-wget ${URL}/stone-webviewer/${VERSION_STONE_WEB_VIEWER}/libStoneWebViewer.so
+wget ${URL}/stone-web-viewer/${VERSION_STONE_WEB_VIEWER}/libStoneWebViewer.so
 wget ${URL}/stone-rt-sample/${VERSION_STONE_RT_SAMPLE}/libRtViewerPlugin.so
 
 chmod +x ./OrthancWSIDicomToTiff
