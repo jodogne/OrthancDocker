@@ -5,7 +5,7 @@ set -ex
 SDK=lsb-sdk-5.0.0-3.x86_64.tar.gz
 
 cd /root/
-wget http://orthanc.osimis.io/ThirdPartyDownloads/linux-standard-base/${SDK}
+wget https://orthanc.uclouvain.be/downloads/third-party-downloads/linux-standard-base/${SDK}
 
 tar xvf ${SDK}
 

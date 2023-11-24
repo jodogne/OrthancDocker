@@ -19,4 +19,4 @@ ADD ./download-lsb.sh /root/download-lsb.sh
 RUN bash /root/download-lsb.sh
 
 ADD ./download-emscripten.sh /root/download-emscripten.sh
-RUN bash /root/download-emscripten.sh "2.0.23"
+RUN bash /root/download-emscripten.sh "3.1.49"
