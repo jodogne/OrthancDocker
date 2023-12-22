@@ -4,7 +4,7 @@ set -e
 cd
 
 URL=https://orthanc.uclouvain.be/downloads/linux-standard-base
-VERSION_ORTHANC=mainline
+VERSION_ORTHANC=1.12.2
 
 # Download binaries compiled with Linux Standard Base
 wget ${URL}/orthanc/${VERSION_ORTHANC}/Orthanc
