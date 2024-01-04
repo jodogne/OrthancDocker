@@ -7,7 +7,7 @@ URL=https://orthanc.uclouvain.be/downloads/linux-standard-base
 
 VERSION_AUTHORIZATION=mainline
 VERSION_DICOM_WEB=mainline
-VERSION_GDCM=mainline-gdcm3
+VERSION_GDCM=mainline
 VERSION_INDEXER=mainline
 VERSION_MYSQL=mainline
 VERSION_NEURO=mainline
