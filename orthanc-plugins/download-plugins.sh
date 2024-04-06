@@ -15,6 +15,7 @@ VERSION_ODBC=mainline
 VERSION_OE2=mainline
 VERSION_OHIF=mainline
 VERSION_POSTGRESQL=mainline
+VERSION_STL=mainline
 VERSION_STONE_WEB_VIEWER=mainline
 VERSION_TCIA=mainline
 VERSION_TRANSFERS=mainline
@@ -73,6 +74,8 @@ wget ${URL}/orthanc-explorer-2/${VERSION_OE2}/libOrthancExplorer2.so
 
 wget ${URL}/orthanc-ohif/${VERSION_OHIF}/libOrthancOHIF.so
 
+wget ${URL}/orthanc-stl/${VERSION_STL}/libOrthancSTL.so
+
 wget ${URL}/stone-web-viewer/${VERSION_STONE_WEB_VIEWER}/libStoneWebViewer.so
 wget ${URL}/stone-rt-sample/${VERSION_STONE_RT_SAMPLE}/libRtViewerPlugin.so
 
@@ -122,14 +125,15 @@ mv ./libOrthancIndexer.so              /usr/local/share/orthanc/plugins/
 mv ./libOrthancMySQLIndex.so           /usr/local/share/orthanc/plugins/
 mv ./libOrthancMySQLStorage.so         /usr/local/share/orthanc/plugins/
 mv ./libOrthancNeuro.so                /usr/local/share/orthanc/plugins/
+mv ./libOrthancOHIF.so                 /usr/local/share/orthanc/plugins/
 mv ./libOrthancOdbcIndex.so            /usr/local/share/orthanc/plugins/
 mv ./libOrthancOdbcStorage.so          /usr/local/share/orthanc/plugins/
 mv ./libOrthancPostgreSQLIndex.so      /usr/local/share/orthanc/plugins/
 mv ./libOrthancPostgreSQLStorage.so    /usr/local/share/orthanc/plugins/
+mv ./libOrthancSTL.so                  /usr/local/share/orthanc/plugins/
 mv ./libOrthancTcia.so                 /usr/local/share/orthanc/plugins/
 mv ./libOrthancTransfers.so            /usr/local/share/orthanc/plugins/
 mv ./libOrthancVolView.so              /usr/local/share/orthanc/plugins/
-mv ./libOrthancOHIF.so                 /usr/local/share/orthanc/plugins/
 mv ./libOrthancWSI.so                  /usr/local/share/orthanc/plugins/
 mv ./libOrthancWebViewer.so            /usr/local/share/orthanc/plugins/
 mv ./libRtViewerPlugin.so              /usr/local/share/orthanc/plugins/
