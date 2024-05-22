@@ -4,7 +4,7 @@ set -e
 cd
 
 URL=https://orthanc.uclouvain.be/downloads/linux-standard-base
-VERSION=4.1
+VERSION=4.2
 
 wget ${URL}/orthanc-python/debian-buster-python-3.7/${VERSION}/libOrthancPython.so
 
