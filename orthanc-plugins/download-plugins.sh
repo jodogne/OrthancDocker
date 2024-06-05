@@ -6,7 +6,7 @@ cd
 URL=https://orthanc.uclouvain.be/downloads/linux-standard-base
 
 VERSION_AUTHORIZATION=0.7.2
-VERSION_DICOM_WEB=1.16
+VERSION_DICOM_WEB=1.17
 VERSION_GDCM=1.7
 VERSION_INDEXER=1.1
 VERSION_MYSQL=5.0
