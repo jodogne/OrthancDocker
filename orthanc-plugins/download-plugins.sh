@@ -6,6 +6,7 @@ cd
 URL=https://orthanc.uclouvain.be/downloads/linux-standard-base
 
 VERSION_AUTHORIZATION=mainline
+VERSION_AWS_S3=mainline
 VERSION_DICOM_WEB=mainline
 VERSION_GDCM=mainline
 VERSION_INDEXER=mainline
@@ -76,6 +77,8 @@ wget ${URL}/orthanc-ohif/${VERSION_OHIF}/libOrthancOHIF.so
 
 wget ${URL}/orthanc-stl/${VERSION_STL}/libOrthancSTL.so
 
+wget ${URL}/orthanc-aws-s3/${VERSION_AWS_S3}/libOrthancAwsS3Storage.so
+
 wget ${URL}/stone-web-viewer/${VERSION_STONE_WEB_VIEWER}/libStoneWebViewer.so
 wget ${URL}/stone-rt-sample/${VERSION_STONE_RT_SAMPLE}/libRtViewerPlugin.so
 
@@ -118,6 +121,7 @@ rm -rf ./UnitTests-Neuro
 mv ./OrthancWSIDicomToTiff             /usr/local/bin/
 mv ./OrthancWSIDicomizer               /usr/local/bin/
 mv ./libOrthancAuthorization.so        /usr/local/share/orthanc/plugins/
+mv ./libOrthancAwsS3Storage.so         /usr/local/share/orthanc/plugins/
 mv ./libOrthancDicomWeb.so             /usr/local/share/orthanc/plugins/
 mv ./libOrthancExplorer2.so            /usr/local/share/orthanc/plugins/
 mv ./libOrthancGdcm.so                 /usr/local/share/orthanc/plugins/
