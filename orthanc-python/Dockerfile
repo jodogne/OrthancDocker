@@ -4,7 +4,7 @@ MAINTAINER Sebastien Jodogne <s.jodogne@gmail.com>
 LABEL Description="Orthanc, free DICOM server, with plugins and Python" Vendor="The Orthanc project"
 
 RUN apt-get -y clean && apt-get -y update
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python3.7 libpython3.7 && \
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python3.11 libpython3.11 && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ADD ./download-python.sh ./download-python.sh
