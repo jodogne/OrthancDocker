@@ -28,3 +28,10 @@ sed 's/\("HttpsCACertificates" : \)".*"/\1"\/etc\/ssl\/certs\/ca-certificates.cr
 # on "RegisterUsers" must *NOT* be done.
 
 # sed 's/\("RegisteredUsers" : {\)/\1\n    "orthanc" : "orthanc"/' -i $CONFIG
+
+
+# Starting with its release 1.6.1, Orthanc Explorer 2 forces the
+# replacement of Orthanc Explorer. As "jodogne" images are for core
+# developers, we revert to Orthanc Explorer 1.
+
+sed 's/^\}$/  , "OrthancExplorer2" : { "IsDefaultOrthancUI": false }\n}/' -i $CONFIG

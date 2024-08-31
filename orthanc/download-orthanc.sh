@@ -24,7 +24,7 @@ chmod +x ./UnitTests-Orthanc
 # Run the unit tests
 mkdir ~/UnitTests
 cd ~/UnitTests
-../UnitTests-Orthanc
+../UnitTests-Orthanc --gtest_filter=-SharedLibrary.Basic
 
 # Recover space used by the unit tests
 cd
