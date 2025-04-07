@@ -6,7 +6,7 @@ cd
 URL=https://orthanc.uclouvain.be/downloads/linux-standard-base
 
 VERSION_AUTHORIZATION=0.9.1
-VERSION_AWS_S3=2.5.1
+VERSION_AWS_S3=2.5.0
 VERSION_DICOM_WEB=1.18
 VERSION_GDCM=1.8
 VERSION_INDEXER=1.1
