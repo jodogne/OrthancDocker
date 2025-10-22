@@ -23,6 +23,7 @@ VERSION_TRANSFERS=mainline
 VERSION_VOLVIEW=mainline
 VERSION_WEB_VIEWER=mainline
 VERSION_WSI=mainline
+VERSION_EDUCATION=mainline
 
 VERSION_STONE_RT_SAMPLE=mainline
 
@@ -78,6 +79,8 @@ wget ${URL}/orthanc-ohif/${VERSION_OHIF}/libOrthancOHIF.so
 wget ${URL}/orthanc-stl/${VERSION_STL}/libOrthancSTL.so
 
 wget ${URL}/orthanc-aws-s3/${VERSION_AWS_S3}/libOrthancAwsS3Storage.so
+
+wget ${URL}/orthanc-education/${VERSION_EDUCATION}/libOrthancEducation.so
 
 wget ${URL}/stone-web-viewer/${VERSION_STONE_WEB_VIEWER}/libStoneWebViewer.so
 wget ${URL}/stone-rt-sample/${VERSION_STONE_RT_SAMPLE}/libRtViewerPlugin.so
@@ -142,3 +145,4 @@ mv ./libOrthancWSI.so                  /usr/local/share/orthanc/plugins/
 mv ./libOrthancWebViewer.so            /usr/local/share/orthanc/plugins/
 mv ./libRtViewerPlugin.so              /usr/local/share/orthanc/plugins/
 mv ./libStoneWebViewer.so              /usr/local/share/orthanc/plugins/
+mv ./libOrthancEducation.so            /usr/local/share/orthanc/plugins/
