@@ -4,7 +4,7 @@ set -e
 cd
 
 DEBIAN_FRONTEND=noninteractive apt-get update
-DEBIAN_FRONTEND=noninteractive apt-get install -y locales wget
+DEBIAN_FRONTEND=noninteractive apt-get install -y locales wget libopenslide0
 
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
 # ln -s /etc/locale.alias /usr/share/locale/locale.alias
