@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM python:3.13-slim-trixie
 
 MAINTAINER Sebastien Jodogne <s.jodogne@gmail.com>
 LABEL Description="Orthanc, free DICOM server" Vendor="The Orthanc project"
