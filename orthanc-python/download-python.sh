@@ -4,7 +4,7 @@ set -e
 cd
 
 URL=https://orthanc.uclouvain.be/downloads/linux-standard-base
-VERSION=6.0
+VERSION=7.0
 
 wget ${URL}/orthanc-python/debian-bookworm-python-3.11/${VERSION}/libOrthancPython.so
 
