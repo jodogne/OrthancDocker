@@ -1,14 +1,12 @@
 #!/bin/bash
 
-set -e
-cd
+set -ex
 
-DEBIAN_FRONTEND=noninteractive apt-get update
-DEBIAN_FRONTEND=noninteractive apt-get install -y locales wget libopenslide0
+echo "locales locales/default_environment_locale select en_US.UTF-8" | debconf-set-selections
+echo "locales locales/locales_to_be_generated multiselect en_US.UTF-8 UTF-8" | debconf-set-selections
 
-echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
-# ln -s /etc/locale.alias /usr/share/locale/locale.alias
-locale-gen
+rm -f /etc/locale.gen
 
-rm -rf /var/lib/apt/lists/*
-rm -rf /usr/share/i18n/
+dpkg-reconfigure --frontend=noninteractive locales
+
+update-locale LANG=en_US.UTF-8

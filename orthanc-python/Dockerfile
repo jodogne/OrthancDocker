@@ -1,10 +1,10 @@
 FROM jodogne/orthanc-plugins:1.13.0
 
-MAINTAINER Sebastien Jodogne <s.jodogne@gmail.com>
+LABEL orth.opencontainers.image.authors="s.jodogne@gmail.com"
 LABEL Description="Orthanc, free DICOM server, with plugins and Python" Vendor="The Orthanc project"
 
 RUN apt-get -y clean && apt-get -y update
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python3.11 libpython3.11 && \
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python3.13 libpython3.13 && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ADD ./download-python.sh ./download-python.sh
@@ -18,6 +18,3 @@ EXPOSE 8042
 
 ENTRYPOINT [ "Orthanc" ]
 CMD [ "/etc/orthanc/" ]
-
-# https://groups.google.com/d/msg/orthanc-users/qWqxpvCPv8g/Z8huoA5FDAAJ
-ENV MALLOC_ARENA_MAX 5

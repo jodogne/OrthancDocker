@@ -11,12 +11,24 @@ mkdir -p /var/lib/orthanc/db
 CONFIG=/etc/orthanc/orthanc.json
 Orthanc --config=$CONFIG
 
+ADVANCED_CONFIG=/etc/orthanc/advanced.json
+Orthanc --advanced-config=$ADVANCED_CONFIG
+
 sed 's/\("Name" : \)".*"/\1"Orthanc inside Docker"/' -i $CONFIG
 sed 's/\("IndexDirectory" : \)".*"/\1"\/var\/lib\/orthanc\/db"/' -i $CONFIG
 sed 's/\("StorageDirectory" : \)".*"/\1"\/var\/lib\/orthanc\/db"/' -i $CONFIG
 sed 's/\("Plugins" : \[\)/\1 \n    "\/usr\/share\/orthanc\/plugins", "\/usr\/local\/share\/orthanc\/plugins"/' -i $CONFIG
 sed 's/"RemoteAccessAllowed" : false/"RemoteAccessAllowed" : true/' -i $CONFIG
-sed 's/"AuthenticationEnabled" : false/"AuthenticationEnabled" : true/' -i $CONFIG
+
+#  Find the unique "AuthenticationEnabled" comment block and append
+#  the active setting after it.
+sed -i '
+/"AuthenticationEnabled"/,/^[[:space:]]*\*\*\/[[:space:]]*$/ {
+    /^[[:space:]]*\*\*\/[[:space:]]*$/a\
+  "AuthenticationEnabled" : true,
+}
+' $CONFIG
+
 
 # New since jodogne/orthanc:1.7.3
 sed 's/\("HttpsCACertificates" : \)".*"/\1"\/etc\/ssl\/certs\/ca-certificates.crt"/' -i $CONFIG
@@ -31,8 +43,18 @@ sed 's/\("HttpsCACertificates" : \)".*"/\1"\/etc\/ssl\/certs\/ca-certificates.cr
 # (Orthanc now refuses to start without a "RegisteredUsers" section),
 # which is well-known credentials, so Orthanc will report the setup as
 # insecure.
+#
+# The sed command below searches for the commented "RegisteredUsers"
+# section, then append a default one with the "orthanc" user.
 
-sed 's/\("RegisteredUsers" : {\)/\1\n    "orthanc" : "orthanc"/' -i $CONFIG
+sed -i '
+/"RegisteredUsers"/,/^[[:space:]]*\*\*\/[[:space:]]*$/ {
+    /^[[:space:]]*\*\*\/[[:space:]]*$/a\
+  "RegisteredUsers" : {\
+    "orthanc" : "orthanc"\
+  },
+}
+' $CONFIG
 
 
 # Starting with its release 1.6.1, Orthanc Explorer 2 forces the

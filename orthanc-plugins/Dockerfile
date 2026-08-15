@@ -1,6 +1,6 @@
 FROM jodogne/orthanc:1.13.0
 
-MAINTAINER Sebastien Jodogne <s.jodogne@gmail.com>
+LABEL orth.opencontainers.image.authors="s.jodogne@gmail.com"
 LABEL Description="Orthanc, free DICOM server, with plugins" Vendor="The Orthanc project"
 
 ADD ./download-plugins.sh ./download-plugins.sh
@@ -14,6 +14,3 @@ EXPOSE 8042
 
 ENTRYPOINT [ "Orthanc" ]
 CMD [ "/etc/orthanc/" ]
-
-# https://groups.google.com/d/msg/orthanc-users/qWqxpvCPv8g/Z8huoA5FDAAJ
-ENV MALLOC_ARENA_MAX 5
