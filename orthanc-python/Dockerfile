@@ -1,6 +1,6 @@
 FROM jodogne/orthanc-plugins
 
-MAINTAINER Sebastien Jodogne <s.jodogne@gmail.com>
+LABEL orth.opencontainers.image.authors="s.jodogne@gmail.com"
 LABEL Description="Orthanc, free DICOM server, with plugins and Python" Vendor="The Orthanc project"
 
 RUN apt-get -y clean && apt-get -y update

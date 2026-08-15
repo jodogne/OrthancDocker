@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 cd
 
 URL=https://orthanc.uclouvain.be/downloads/linux-standard-base

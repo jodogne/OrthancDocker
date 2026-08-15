@@ -1,6 +1,6 @@
 FROM jodogne/orthanc
 
-MAINTAINER Sebastien Jodogne <s.jodogne@gmail.com>
+LABEL orth.opencontainers.image.authors="s.jodogne@gmail.com"
 LABEL Description="Orthanc, free DICOM server, with plugins" Vendor="The Orthanc project"
 
 ADD ./download-plugins.sh ./download-plugins.sh
