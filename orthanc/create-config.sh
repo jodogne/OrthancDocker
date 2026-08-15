@@ -22,12 +22,17 @@ sed 's/"AuthenticationEnabled" : false/"AuthenticationEnabled" : true/' -i $CONF
 sed 's/\("HttpsCACertificates" : \)".*"/\1"\/etc\/ssl\/certs\/ca-certificates.crt"/' -i $CONFIG
 
 
-# Starting with Orthanc 1.5.8, we let Orthanc create its default
+# Between Orthanc 1.5.8 and 1.12.11, we let Orthanc create its default
 # user. This results in showing a warning about "Insecure setup", both
 # in the logs and in Orthanc Explorer. => The following call to "sed"
 # on "RegisterUsers" must *NOT* be done.
+#
+# Since 1.13.0, the default user "orthanc:orthanc" is added again
+# (Orthanc now refuses to start without a "RegisteredUsers" section),
+# which is well-known credentials, so Orthanc will report the setup as
+# insecure.
 
-# sed 's/\("RegisteredUsers" : {\)/\1\n    "orthanc" : "orthanc"/' -i $CONFIG
+sed 's/\("RegisteredUsers" : {\)/\1\n    "orthanc" : "orthanc"/' -i $CONFIG
 
 
 # Starting with its release 1.6.1, Orthanc Explorer 2 forces the
