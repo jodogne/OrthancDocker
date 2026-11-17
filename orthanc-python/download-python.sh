@@ -4,7 +4,7 @@ set -ex
 cd
 
 URL=https://orthanc.uclouvain.be/downloads/linux-standard-base
-VERSION=mainline
+VERSION=7.1
 
 wget ${URL}/orthanc-python/debian-trixie-python-3.13/${VERSION}/libOrthancPython.so
 

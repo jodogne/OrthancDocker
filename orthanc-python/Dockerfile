@@ -1,4 +1,4 @@
-FROM jodogne/orthanc-plugins
+FROM jodogne/orthanc-plugins:1.13.1
 
 LABEL orth.opencontainers.image.authors="s.jodogne@gmail.com"
 LABEL Description="Orthanc, free DICOM server, with plugins and Python" Vendor="The Orthanc project"
